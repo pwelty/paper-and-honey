@@ -2,7 +2,7 @@
 # Build, copy to averroes and install permanently into the running Thunderbird.
 set -euo pipefail
 cd "$(dirname "$0")/.."
-dest='Library/Caches/thunderbird-theme-dev/dist'
+dest='Library/Caches/paper-and-honey-dev/dist'
 ssh -o BatchMode=yes averroes "mkdir -p ~/$dest"
 # Temporary dev copies (tools/dev.sh) shadow permanent installs of the same id; drop them first.
 python3 -I tools/mn.py js 'const {AddonManager}=ChromeUtils.importESModule("resource://gre/modules/AddonManager.sys.mjs");

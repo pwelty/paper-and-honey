@@ -8,5 +8,9 @@ for a in theme reading; do
   out="dist/paper-and-honey-$a-$v.xpi"
   rm -f "$out"
   (cd "$a" && python3 -m zipfile -c "../$out" $(ls))
+  python3 - "$out" <<'PY'   # the project LICENSE ships in every add-on
+import sys, zipfile
+with zipfile.ZipFile(sys.argv[1], "a") as z: z.write("LICENSE", "LICENSE")
+PY
   echo "$out"
 done

@@ -3,7 +3,7 @@
 # Temporary installs vanish when Thunderbird restarts; tools/build.sh makes permanent .xpi files.
 set -euo pipefail
 cd "$(dirname "$0")/.."
-dest='Library/Caches/thunderbird-theme-dev'
+dest='Library/Caches/paper-and-honey-dev'
 ssh -o BatchMode=yes averroes "mkdir -p ~/$dest"
 for a in theme reading; do
   rsync -a --delete "$a/" "averroes:$dest/$a/"

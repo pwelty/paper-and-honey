@@ -91,6 +91,17 @@ Audits, run in the live UI:
 By hand: Tools → Developer Tools → Developer Toolbox. Thunderbird's own theme CSS, for names:
 <https://searchfox.org/comm-central/source/mail/themes/>
 
+## License
+
+Paper & Honey is © 2026 Paul Welty, licensed under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) (full text in `LICENSE`, which also
+ships inside both add-ons). Share and adapt it freely; credit is the condition:
+
+> "Paper & Honey" by Paul Welty (https://paulwelty.com/apps/paper-and-honey/), licensed under
+> CC BY 4.0 — plus a note if you changed it.
+
+The Phosphor icons inside it stay under their own MIT license (below).
+
 ## Credits
 
 - Icons: [Phosphor Icons](https://phosphoricons.com) 2.1.1, © 2023 Phosphor Icons, MIT License.
