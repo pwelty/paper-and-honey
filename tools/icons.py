@@ -23,8 +23,8 @@ NAMES = [
     "address-book", "calendar-blank", "check-square", "chat-circle", "gear-six",
     "arrow-bend-up-left", "arrow-bend-double-up-left", "arrow-bend-up-right",
     "star", "star:fill", "paperclip",
-    "plus:regular", "cloud-arrow-down", "dots-three", "dots-three-vertical", "sliders-horizontal",
-    "funnel-simple", "list", "arrow-line-left",
+    "plus:regular", "cloud-arrow-down", "dots-three:regular", "dots-three-vertical:regular",
+    "sliders-horizontal", "funnel-simple", "list:regular", "arrow-line-left",
 ]
 
 PATH = re.compile(r"<path\b([^>]*)/?>")

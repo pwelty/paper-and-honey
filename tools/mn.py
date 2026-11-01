@@ -1,7 +1,7 @@
 """Tiny Marionette client for Thunderbird.
   mn.py shot OUT.png        screenshot the main window
   mn.py js 'return ...'     run JS in the chrome context (- reads stdin)
-  MN_WINDOW=<url part> picks a window (default messenger.xhtml)
+  MN_WINDOW=<url part> picks a window (default messenger.xhtml); MN_PORT picks the instance (default 2828)
   mn.py addon PATH        install an unpacked add-on temporarily (path as seen on averroes)
   mn.py reload              hot-swap theme.css + reading.css in the running TB (no restart)
 """
@@ -34,7 +34,7 @@ function walk(doc) {
 for (const win of Services.wm.getEnumerator(null)) walk(win.document);
 return `reloaded ${n} sheets`;
 """
-m = M(); m.cmd("WebDriver:NewSession", {}); m.cmd("Marionette:SetContext", {"value": "chrome"})
+m = M(int(os.environ.get("MN_PORT", "2828"))); m.cmd("WebDriver:NewSession", {}); m.cmd("Marionette:SetContext", {"value": "chrome"})
 # focus the main 3-pane window
 for h in m.cmd("WebDriver:GetWindowHandles"):
     m.cmd("WebDriver:SwitchToWindow", {"handle": h})
