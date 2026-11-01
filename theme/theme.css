@@ -259,6 +259,12 @@ tooltip {
   padding-inline-start: 8px !important;
 }
 
+/* Narrow arrow slot: keeps names aligned in the tree without wasting width */
+#folderTree li > .container > .twisty {
+  inline-size: 12px !important;
+  min-inline-size: 12px !important;
+}
+
 /* No empty arrow slot on rows that can't expand, in the flat modes */
 #folderTree li:is([data-mode="favorite"], [data-mode="unread"], [data-mode="recent"])
   li:not(.children) > .container > .twisty {
