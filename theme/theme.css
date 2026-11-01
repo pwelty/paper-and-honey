@@ -37,6 +37,9 @@
   --warm-honey-hover: #D48E15;
   --warm-on-honey:    #2C2116;    /* dark ink on honey: ~4.6:1; cream would be 3.3:1 */
   --warm-honey-deep:  light-dark(#9A5F00, #E3A93B);   /* honey as text: ~5:1 on canvas */
+  --warm-honey-strong:       light-dark(#8A5300, #E3A93B);  /* filled primary: burnt honey */
+  --warm-honey-strong-hover: light-dark(#9A5F00, #EDB955);
+  --warm-on-honey-strong:    light-dark(#FFFDF8, #1E1914);  /* ~6:1 light, ~9:1 dark */
   --warm-honey-soft:  light-dark(#F5E2B8, #4A3A1C);
   --warm-on-honey-soft: light-dark(#6B4306, #F3CF85);  /* ~7:1 on honey-soft, both modes */
   --warm-poppy:       #C74A3C;
@@ -113,20 +116,20 @@
   --search-bar-color: var(--warm-text-primary) !important;
 
   /* Spaces bar (far left) */
-  --spaces-button-active-bg-color: var(--warm-honey) !important;
-  --spaces-button-active-text-color: var(--warm-on-honey) !important;
+  --spaces-button-active-bg-color: var(--warm-honey-strong) !important;
+  --spaces-button-active-text-color: var(--warm-on-honey-strong) !important;
 
   /* Buttons */
-  --button-primary-background-color: var(--warm-honey) !important;
-  --button-primary-hover-background-color: var(--warm-honey-hover) !important;
-  --button-primary-active-background-color: var(--warm-honey-hover) !important;
+  --button-primary-background-color: var(--warm-honey-strong) !important;
+  --button-primary-hover-background-color: var(--warm-honey-strong-hover) !important;
+  --button-primary-active-background-color: var(--warm-honey-strong-hover) !important;
   --button-primary-border-color: transparent !important;
-  --button-primary-text-color: var(--warm-on-honey) !important;
-  --button-background-color-primary: var(--warm-honey) !important;
-  --button-background-color-primary-hover: var(--warm-honey-hover) !important;
-  --button-background-color-primary-active: var(--warm-honey-hover) !important;
-  --button-text-color-primary: var(--warm-on-honey) !important;
-  --button-text-color-primary-hover: var(--warm-on-honey) !important;
+  --button-primary-text-color: var(--warm-on-honey-strong) !important;
+  --button-background-color-primary: var(--warm-honey-strong) !important;
+  --button-background-color-primary-hover: var(--warm-honey-strong-hover) !important;
+  --button-background-color-primary-active: var(--warm-honey-strong-hover) !important;
+  --button-text-color-primary: var(--warm-on-honey-strong) !important;
+  --button-text-color-primary-hover: var(--warm-on-honey-strong) !important;
 
   /* Inputs */
   --input-background-color: var(--warm-canvas) !important;
@@ -228,6 +231,27 @@ tooltip {
 .list-header-title,
 #subjectHeading {
   font-weight: 500 !important;
+}
+
+/* Sentence case for the title-cased labels on screen all the time. Strings come from TB's
+   localisation, which a theme can't edit; lowercase + capital first letter does it per label
+   (a blanket rule would mangle proper nouns like OpenPGP). */
+#folderPaneWriteMessage,
+#threadPaneQuickFilterButton > span,
+#hdrReplyAllButton .toolbarbutton-text,
+#calendar-status-todaypane-button .toolbarbutton-text {
+  display: inline-block;
+  text-transform: lowercase !important;
+}
+/* Counts start with a number, so lowercase is enough: "7,292 messages", "2 selected" */
+.thread-pane-count-info {
+  text-transform: lowercase !important;
+}
+#folderPaneWriteMessage::first-letter,
+#threadPaneQuickFilterButton > span::first-letter,
+#hdrReplyAllButton .toolbarbutton-text::first-letter,
+#calendar-status-todaypane-button .toolbarbutton-text::first-letter {
+  text-transform: uppercase !important;
 }
 
 * {
