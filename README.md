@@ -132,5 +132,7 @@ python3 tools/shots.py                            # shots/site/paper-and-honey-{
 3. Create a GitHub release `vX.Y.Z` with both `.xpi` files.
 4. Publish `dist/updates.json` at `https://paulwelty.com/apps/paper-and-honey/updates.json` (the
    `update_url` in both manifests). Thunderbird checks it about daily.
+5. For addons.thunderbird.net: `tools/build.sh --atn` writes `dist/atn/*.xpi` without `update_url`
+   (ATN rejects it and delivers its own updates). Upload each as a new version of its listing.
 
 Thunderbird's own theme CSS, for variable names: <https://searchfox.org/comm-central/source/mail/themes/>
