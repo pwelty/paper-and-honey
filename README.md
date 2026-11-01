@@ -114,6 +114,17 @@ Audits, run in the live UI:
 - `python3 tools/mn.py js - < tools/vars.js` — variables `theme.css` sets that Thunderbird never
   reads.
 
+### Screenshots
+
+Taken from a headless demo Thunderbird on leibniz with invented mail, never Paul's inbox, and
+never a second Thunderbird on the machine he's using:
+
+```sh
+tools/demo-leibniz.sh && python3 tools/demo.py   # fresh profile, add-ons, demo mail
+# restart the demo instance once (New message picks up the account), then:
+python3 tools/shots.py                            # shots/site/paper-and-honey-{light,dark,newsletter}.png
+```
+
 ### Releasing
 
 1. Bump `version` in both manifests (they share one version number).

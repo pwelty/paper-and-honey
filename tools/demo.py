@@ -1,15 +1,15 @@
 """Fill a throwaway Thunderbird profile with invented mail for screenshots.
 
-Runs against a demo instance (MN_PORT, default 2829) started with its own profile, e.g.
-  open -n -a Thunderbird --env MOZ_REMOTE_ALLOW_SYSTEM_ACCESS=1 \
-       --args -profile <dir> -no-remote --marionette      (user.js: marionette.port 2829)
-  python3 tools/demo.py
+Runs against the headless demo instance on leibniz (tools/demo-leibniz.sh starts it and
+tunnels Marionette to local port 2829). Never run a second Thunderbird on the machine Paul
+is using: it interferes with his.
+  tools/demo-leibniz.sh && python3 tools/demo.py
 Everything here is fictional; addresses use reserved example domains.
 """
 import json, os, subprocess, sys, base64
 from datetime import datetime, timedelta, timezone
 
-NOW = datetime(2026, 11, 2, 9, 40, tzinfo=timezone(timedelta(hours=-5)))
+NOW = datetime(2026, 11, 1, 14, 30, tzinfo=timezone(timedelta(hours=-5)))
 ME = "Robin Quill <robin@example.com>"
 
 def at(days=0, hours=0, minutes=0):
@@ -115,8 +115,18 @@ def rfc822(m):
 SETUP_JS = r"""
 const data = arguments[0];
 const am = MailServices.accounts;
-if (!am.localFoldersServer) am.createLocalMailAccount();
-const server = am.localFoldersServer;
+// A sendable account (local folders can't be the default, so New message would stay disabled).
+// POP with checking off: it never touches the network.
+let acct = am.accounts.find(a => a.incomingServer.type === "pop3");
+if (!acct) {
+  const srv = am.createIncomingServer("robin", "mail.example.com", "pop3");
+  srv.loginAtStartUp = false; srv.doBiff = false;
+  acct = am.createAccount(); acct.incomingServer = srv;
+  const id = am.createIdentity(); id.fullName = "Robin Quill"; id.email = "robin@example.com";
+  acct.addIdentity(id);
+  am.defaultAccount = acct;
+}
+const server = acct.incomingServer;
 server.prettyName = "Mail";
 const root = server.rootFolder.QueryInterface(Ci.nsIMsgLocalMailFolder);
 const F = Ci.nsMsgFolderFlags;
@@ -147,9 +157,18 @@ for (const m of data) {
 for (const name of ["Inbox", "Newsletters", "Receipts"]) folders[name].setFlag(F.Favorite);
 folders["Garden co-op"].setFlag(F.Favorite);
 window.resizeTo(1440, 900);
+Services.prefs.setIntPref("mail.addressDisplayFormat", 2);  // names only in the list
 const w = document.getElementById("tabmail").currentAbout3Pane;
 w.folderPane.activeModes = ["favorite", "all"];
-return {added: n, folders: Object.keys(folders)};
+await new Promise(r => setTimeout(r, 800));
+for (const row of w.document.querySelectorAll('#folderTree li[data-server-type="pop3"].collapsed')) w.folderTree.expandRow(row);
+const local = w.document.querySelector('#folderTree > li[data-mode="all"] li[data-server-type="none"]');
+if (local && !local.classList.contains("collapsed")) w.folderTree.collapseRow(local);
+w.displayFolder(folders.Inbox);
+await new Promise(r => setTimeout(r, 800));
+const v = w.gDBView;
+for (let i = 0; i < v.rowCount; i++) if (/Lisbon/.test(v.getMsgHdrAt(i).mime2DecodedSubject)) { w.threadTree.selectedIndex = i; break; }
+return {added: n, folders: Object.keys(folders), canWrite: !w.document.getElementById("folderPaneWriteMessage").disabled};
 """
 
 if __name__ == "__main__":
@@ -162,5 +181,6 @@ if __name__ == "__main__":
     for h in mn.cmd("WebDriver:GetWindowHandles"):
         mn.cmd("WebDriver:SwitchToWindow", {"handle": h})
         if "messenger.xhtml" in mn.cmd("WebDriver:GetCurrentURL")["value"]: break
-    print(json.dumps(mn.cmd("WebDriver:ExecuteScript", {"script": SETUP_JS, "args": [MESSAGES]})["value"], indent=1))
+    js = "const done = arguments[arguments.length - 1]; (async () => {" + SETUP_JS + "})().then(done, e => done('ERR ' + e));"
+    print(json.dumps(mn.cmd("WebDriver:ExecuteAsyncScript", {"script": js, "args": [MESSAGES]})["value"], indent=1))
     mn.cmd("WebDriver:DeleteSession")

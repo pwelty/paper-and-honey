@@ -447,6 +447,7 @@ tooltip {
 
 .card-layout .read-status {
   fill: var(--warm-honey) !important;
+  stroke: var(--warm-honey-deep) !important;  /* TB outlines the dot in its global green */
 }
 
 /* Thread replies: half the indent (the 12px gutter keeps the connector line) */
