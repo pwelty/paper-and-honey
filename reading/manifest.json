@@ -2,13 +2,14 @@
   "manifest_version": 3,
   "name": "Paper & Honey Reading",
   "description": "Reading typography for message bodies and a matching compose editor, to go with the Paper & Honey theme.",
-  "version": "0.2.2",
+  "version": "0.4.0",
   "author": "Paul Welty",
   "homepage_url": "https://paulwelty.com/apps/paper-and-honey/",
   "browser_specific_settings": {
     "gecko": {
       "id": "paper-and-honey-reading@paulwelty.com",
-      "strict_min_version": "151.0"
+      "strict_min_version": "151.0",
+      "update_url": "https://paulwelty.com/apps/paper-and-honey/updates.json"
     }
   },
   "permissions": [

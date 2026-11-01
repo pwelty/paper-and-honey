@@ -2,13 +2,14 @@
   "manifest_version": 3,
   "name": "Paper & Honey",
   "description": "A warm paper theme for Thunderbird: cream and espresso, brown ink, honey accents.",
-  "version": "0.3.9",
+  "version": "0.4.0",
   "author": "Paul Welty",
   "homepage_url": "https://paulwelty.com/apps/paper-and-honey/",
   "browser_specific_settings": {
     "gecko": {
       "id": "paper-and-honey@paulwelty.com",
-      "strict_min_version": "151.0"
+      "strict_min_version": "151.0",
+      "update_url": "https://paulwelty.com/apps/paper-and-honey/updates.json"
     }
   },
   "theme_experiment": {
