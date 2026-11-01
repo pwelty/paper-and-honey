@@ -1,0 +1,713 @@
+/* userChrome.css — Thunderbird warm theme (single file, no @import)
+ * Requires: toolkit.legacyUserProfileCustomizations.stylesheets = true
+ *
+ * Strategy: Override Thunderbird's internal CSS variables wherever possible,
+ * then add targeted rules for elements the variables don't reach.
+ * Source: https://searchfox.org/comm-central/source/mail/themes/shared/mail/
+ */
+
+/* ============================================================
+   DESIGN TOKENS (our palette)
+   ============================================================ */
+
+:root {
+  /* Backgrounds */
+  --warm-canvas: #FFFDF8;
+  --warm-surface: #FAF6F1;
+  --warm-muted: #F0E6D8;
+  --warm-border: #E8DCC8;
+  --warm-border-strong: #D4C4AC;
+
+  /* Text */
+  --warm-text-primary: #2C2116;
+  --warm-text-secondary: #5C4D3C;
+  --warm-text-muted: #8B7355;
+  --warm-text-placeholder: #B09A7C;
+
+  /* Accents */
+  --warm-honey: #C07D12;
+  --warm-fern: #4D8B55;
+  --warm-poppy: #C74A3C;
+  --warm-sky: #4A7FB5;
+  --warm-iris: #8B5DC8;
+  --warm-terracotta: #D4854A;
+
+  /* Selection */
+  --warm-selected-bg: #C07D12;
+  --warm-selected-text: #FFFDF8;
+  --warm-hover-bg: #F0E6D8;
+
+  /* Fonts */
+  --warm-font-fun: 'SF Pro Rounded', 'Avenir Next', -apple-system, system-ui, sans-serif;
+  --warm-font-reading: Charter, 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+
+  /* ============================================================
+     THUNDERBIRD INTERNAL VARIABLE OVERRIDES
+     These are TB's own theming variables (from about3Pane.css,
+     threadCard.css, threadPane.css). Overriding them is the most
+     reliable way to theme TB.
+     ============================================================ */
+
+  /* --- Sidebar / Folder pane --- */
+  --sidebar-background: var(--warm-surface) !important;
+  --sidebar-text-color: var(--warm-text-secondary) !important;
+  --sidebar-border-color: var(--warm-border) !important;
+
+  /* --- Tree items (folders, messages) --- */
+  --treeitem-background-selected: #5C4D3C !important;  /* dark warm brown — high contrast with white text */
+  --treeitem-background-active: #5C4D3C !important;
+  --treeitem-text-active: #FFFFFF !important;
+  --treeitem-background-hover: var(--warm-hover-bg) !important;
+  --treeitem-outline-hover: transparent !important;
+
+  /* --- Folder pane unread badges --- */
+  --folderpane-unread-count-background: var(--warm-honey) !important;
+  --folderpane-unread-count-text: var(--warm-selected-text) !important;
+  --folderpane-unread-new-count-background: var(--warm-honey) !important;
+
+  /* --- Selected item colors (global) --- */
+  --selected-item-color: var(--warm-selected-bg) !important;
+  --selected-item-text-color: var(--warm-selected-text) !important;
+  --listbox-focused-selected-bg: var(--warm-selected-bg) !important;
+
+  /* --- Thread card view — flatten the cards --- */
+  --tree-card-inline: 0px !important;  /* no side margin on cards */
+  --thread-pane-container-gap: 0px !important;  /* no gap between rows */
+  --thread-card-content-gap: 2px !important;  /* tighter internal gap */
+  --tree-card-background: var(--warm-canvas) !important;
+  --tree-card-border: transparent !important;  /* kill card borders */
+  --tree-card-background-current: var(--warm-hover-bg) !important;
+  --tree-card-background-selected: var(--warm-selected-bg) !important;
+  --tree-card-background-selected-current: var(--warm-selected-bg) !important;
+  --tree-card-border-selected: var(--warm-selected-bg) !important;
+  --tree-card-background-current-unfocused: var(--warm-hover-bg) !important;
+  --tree-card-background-selected-unfocused: var(--warm-muted) !important;
+  --tree-card-border-selected-unfocused: var(--warm-border-strong) !important;
+  --tree-card-background-selected-current-unfocused: var(--warm-muted) !important;
+
+  /* --- Thread card colors --- */
+  --new-subject-color: var(--warm-text-primary) !important;
+  --new-color: var(--warm-text-primary) !important;
+  --unread-color: var(--warm-text-primary) !important;
+
+  /* --- Thread card font size (bump up from default) --- */
+  --thread-line-height: 1.4 !important;
+
+  /* --- Thread pane icons --- */
+  --thread-pane-flag-fill: var(--warm-honey) !important;
+  --thread-pane-flag-stroke: var(--warm-honey) !important;
+
+  /* --- General UI colors --- */
+  --color-accent-primary: var(--warm-honey) !important;
+  --color-accent-primary-hover: #D48E15 !important;
+  --button-primary-background-color: var(--warm-honey) !important;
+  --button-primary-text-color: var(--warm-selected-text) !important;
+
+  /* --- Toolbar --- */
+  --toolbar-bgcolor: var(--warm-surface) !important;
+  --toolbar-color: var(--warm-text-secondary) !important;
+
+  /* --- Tab bar --- */
+  --tab-selected-bgcolor: var(--warm-canvas) !important;
+  --tab-selected-color: var(--warm-text-primary) !important;
+  --tabline-selected-color: var(--warm-honey) !important;
+
+  /* --- Shadows and misc --- */
+  --arrowpanel-background: var(--warm-canvas) !important;
+  --arrowpanel-color: var(--warm-text-primary) !important;
+  --arrowpanel-border-color: var(--warm-border) !important;
+  --panel-separator-color: var(--warm-border) !important;
+}
+
+/* ============================================================
+   TOOLBAR
+   ============================================================ */
+
+unified-toolbar,
+#toolbar-menubar,
+#navigation-toolbox,
+#mail-toolbox {
+  background-color: var(--warm-surface) !important;
+  box-shadow: none !important;
+}
+
+/* Ghost buttons */
+.unified-toolbar-button,
+toolbarbutton {
+  color: var(--warm-text-secondary) !important;
+  border-radius: 4px !important;
+  background: transparent !important;
+  border: none !important;
+  font-family: var(--warm-font-fun) !important;
+  font-size: 11px !important;
+}
+
+.unified-toolbar-button:hover,
+toolbarbutton:hover {
+  background-color: var(--warm-hover-bg) !important;
+  color: var(--warm-text-primary) !important;
+}
+
+/* Primary: New Message */
+#button-newmsg,
+toolbarbutton[command="cmd_newMessage"] {
+  background-color: var(--warm-honey) !important;
+  color: var(--warm-selected-text) !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+}
+
+#button-newmsg:hover,
+toolbarbutton[command="cmd_newMessage"]:hover {
+  filter: brightness(1.08) !important;
+}
+
+/* Search bar */
+#searchInput {
+  background-color: var(--warm-canvas) !important;
+  border: 1px solid var(--warm-border) !important;
+  border-radius: 6px !important;
+  color: var(--warm-text-primary) !important;
+  font-family: var(--warm-font-fun) !important;
+}
+
+#searchInput:focus {
+  border-color: var(--warm-honey) !important;
+}
+
+/* Title bar */
+#titlebar {
+  background-color: var(--warm-muted) !important;
+}
+
+/* ============================================================
+   FOLDER PANE
+   ============================================================ */
+
+#folderPane,
+#folderPaneBox {
+  background-color: var(--warm-surface) !important;
+}
+
+#folderTree {
+  background-color: var(--warm-surface) !important;
+  font-family: var(--warm-font-fun) !important;
+  font-size: 12px !important;
+  color: var(--warm-text-secondary) !important;
+}
+
+/* Folder rows — tighter horizontal spacing */
+#folderTree li > .container {
+  border-radius: 3px !important;
+  gap: 4px !important;
+  padding-inline: 4px !important;  /* reduce left/right padding inside container */
+}
+
+/* Reduce subfolder indentation — TB default is ~20px per level, way too much */
+#folderTree li ul {
+  padding-inline-start: 10px !important;
+  margin: 0 !important;
+}
+
+/* Kill ALL padding on folder pane and its wrappers */
+#folderTree {
+  padding: 4px 0 0 0 !important;
+}
+
+#folderPane,
+#folderPaneBox {
+  padding: 0 !important;
+}
+
+/* The folder pane header area above the tree */
+#folderPaneHeaderBar {
+  padding-inline: 4px !important;
+}
+
+/* Tighten the folder pane icon size */
+#folderTree .icon {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+/* Selected folder — dark brown bg, white text, max specificity */
+#folderTree li.selected > .container,
+#folderTree:focus-within li.selected > .container {
+  background-color: #5C4D3C !important;
+}
+
+#folderTree li.selected > .container *,
+#folderTree:focus-within li.selected > .container *,
+#folderTree li.selected > .container .name,
+#folderTree li.selected > .container .icon {
+  color: #FFFFFF !important;
+  fill: #FFFFFF !important;
+}
+
+#folderTree li.selected > .container .unread-count {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  color: #FFFFFF !important;
+}
+
+/* Also catch the focus-within + selected combo */
+#folderTree li:focus-within.selected > .container {
+  background-color: #5C4D3C !important;
+}
+
+#folderTree li:focus-within.selected > .container * {
+  color: #FFFFFF !important;
+  fill: #FFFFFF !important;
+}
+
+/* Section headers */
+#folderTree .folder-pane-header {
+  font-size: 9px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: var(--warm-text-muted) !important;
+  font-weight: 600 !important;
+  font-family: var(--warm-font-fun) !important;
+}
+
+/* ============================================================
+   MESSAGE LIST (THREAD PANE) — CARD VIEW
+   ============================================================ */
+
+#threadPane,
+#threadPaneBox {
+  background-color: var(--warm-canvas) !important;
+}
+
+#threadTree {
+  background-color: var(--warm-canvas) !important;
+  font-family: var(--warm-font-fun) !important;
+  padding: 0 !important;
+}
+
+/* Kill all padding on thread tree wrappers */
+#threadTree tbody {
+  padding: 0 !important;
+}
+
+#threadPane > tree-view,
+#threadTree > tbody {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Card row styling — flat list, no card nesting */
+.card-layout {
+  font-family: var(--warm-font-fun) !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-bottom: 1px solid var(--warm-border) !important;
+}
+
+/* Kill the inner card container's own border/padding/margin */
+.card-layout .card-container {
+  padding: 5px 6px !important;
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  background: transparent !important;
+  inset-inline: 0 !important;  /* kill any left/right offset */
+}
+
+/* Consistent font size and weight — NO jiggle between read/unread */
+.card-layout .sender {
+  font-size: 12.5px !important;
+  font-weight: 400 !important;  /* same weight always */
+}
+
+.card-layout .subject {
+  font-size: 12.5px !important;
+  font-weight: 400 !important;  /* same weight always */
+}
+
+.card-layout .date {
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  opacity: 0.7 !important;
+}
+
+/* Unread: distinguish by COLOR only, never weight */
+.card-layout[data-properties~="unread"] .sender {
+  color: var(--warm-text-primary) !important;
+}
+
+.card-layout[data-properties~="unread"] .subject {
+  color: var(--warm-text-secondary) !important;
+}
+
+/* Read: muted colors */
+.card-layout:not([data-properties~="unread"]) .sender {
+  color: var(--warm-text-secondary) !important;
+}
+
+.card-layout:not([data-properties~="unread"]) .subject {
+  color: var(--warm-text-muted) !important;
+}
+
+/* === Tag-based coloring === */
+/* TB encodes tag keywords in data-properties as T_24labelN
+   (the $ becomes _24). Each tag gets a left border + background tint. */
+
+/* Important (label1) — poppy red */
+#threadTree tr[data-properties~="T_24label1"],
+.card-layout[data-properties~="T_24label1"] {
+  border-left: 3px solid var(--warm-poppy) !important;
+  background-color: color-mix(in srgb, var(--warm-poppy) 25%, var(--warm-canvas)) !important;
+}
+
+/* Work (label2) — sky blue */
+#threadTree tr[data-properties~="T_24label2"],
+.card-layout[data-properties~="T_24label2"] {
+  border-left: 3px solid var(--warm-sky) !important;
+  background-color: color-mix(in srgb, var(--warm-sky) 25%, var(--warm-canvas)) !important;
+}
+
+/* Personal (label3) — fern green */
+#threadTree tr[data-properties~="T_24label3"],
+.card-layout[data-properties~="T_24label3"] {
+  border-left: 3px solid var(--warm-fern) !important;
+  background-color: color-mix(in srgb, var(--warm-fern) 25%, var(--warm-canvas)) !important;
+}
+
+/* To Do (label4) — iris purple */
+#threadTree tr[data-properties~="T_24label4"],
+.card-layout[data-properties~="T_24label4"] {
+  border-left: 3px solid var(--warm-iris) !important;
+  background-color: color-mix(in srgb, var(--warm-iris) 25%, var(--warm-canvas)) !important;
+}
+
+/* Later (label5) — terracotta */
+#threadTree tr[data-properties~="T_24label5"],
+.card-layout[data-properties~="T_24label5"] {
+  border-left: 3px solid var(--warm-terracotta) !important;
+  background-color: color-mix(in srgb, var(--warm-terracotta) 25%, var(--warm-canvas)) !important;
+}
+
+/* Selected card text */
+.card-layout.selected,
+.card-layout.selected * {
+  color: var(--warm-selected-text) !important;
+}
+
+/* Hover — subtle warm tint, no card lift */
+.card-layout:hover {
+  background-color: var(--warm-hover-bg) !important;
+}
+
+/* Table view rows */
+.table-layout {
+  font-family: var(--warm-font-fun) !important;
+}
+
+tr[data-properties~="unread"] {
+  font-weight: 500 !important;
+  color: var(--warm-text-primary) !important;
+}
+
+/* Date column */
+.datecol-column {
+  font-size: 10px !important;
+  color: var(--warm-text-muted) !important;
+}
+
+/* Column headers */
+#threadTree thead[is="tree-view-table-header"] {
+  background-color: var(--warm-surface) !important;
+  border-bottom: 1px solid var(--warm-border) !important;
+  font-size: 10px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.03em !important;
+  color: var(--warm-text-muted) !important;
+  font-family: var(--warm-font-fun) !important;
+}
+
+/* Quick filter bar */
+.list-header-bar {
+  background-color: var(--warm-surface) !important;
+  font-family: var(--warm-font-fun) !important;
+}
+
+/* ============================================================
+   READING PANE
+   ============================================================ */
+
+#messagepanebox,
+#messageBrowser {
+  background-color: var(--warm-canvas) !important;
+}
+
+#msgHeaderView,
+.message-header-view {
+  background-color: var(--warm-canvas) !important;
+  font-family: var(--warm-font-fun) !important;
+}
+
+/* Subject */
+#expandedsubjectBox .headerValue,
+.message-header-subject {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: var(--warm-text-primary) !important;
+  font-family: var(--warm-font-fun) !important;
+}
+
+/* Sender */
+#expandedfromBox .headerValue {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: var(--warm-text-primary) !important;
+}
+
+.emailDisplayButton {
+  color: var(--warm-text-muted) !important;
+}
+
+/* Date */
+#dateValueBox,
+.message-header-datetime {
+  font-size: 11px !important;
+  color: var(--warm-text-muted) !important;
+}
+
+/* Header labels */
+.message-header-label,
+.headerName {
+  color: var(--warm-text-muted) !important;
+}
+
+/* Reply/Forward buttons */
+.header-buttons-container button,
+#header-view-toolbar toolbarbutton {
+  background-color: var(--warm-surface) !important;
+  border: 1px solid var(--warm-border) !important;
+  border-radius: 6px !important;
+  color: var(--warm-text-secondary) !important;
+  font-family: var(--warm-font-fun) !important;
+}
+
+.header-buttons-container button:hover,
+#header-view-toolbar toolbarbutton:hover {
+  background-color: var(--warm-hover-bg) !important;
+}
+
+/* ============================================================
+   TABS
+   ============================================================ */
+
+#tabs-toolbar {
+  background-color: var(--warm-surface) !important;
+}
+
+.tabmail-tab .tab-text {
+  font-family: var(--warm-font-fun) !important;
+  font-size: 12px !important;
+  color: var(--warm-text-secondary) !important;
+}
+
+.tabmail-tab:hover {
+  background-color: var(--warm-hover-bg) !important;
+}
+
+.tabmail-tab[selected="true"] .tab-text,
+.tabmail-tab[visuallyselected="true"] .tab-text {
+  color: var(--warm-text-primary) !important;
+  font-weight: 500 !important;
+}
+
+.tab-close-button:hover {
+  background-color: var(--warm-poppy) !important;
+  color: white !important;
+}
+
+/* ============================================================
+   CONTEXT MENUS & PANELS
+   ============================================================ */
+
+menupopup,
+panel {
+  background-color: var(--warm-canvas) !important;
+  border: 1px solid var(--warm-border) !important;
+  border-radius: 6px !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+
+menuitem,
+menu {
+  font-family: var(--warm-font-fun) !important;
+  font-size: 12px !important;
+  color: var(--warm-text-primary) !important;
+  border-radius: 4px !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+
+menuitem:hover,
+menuitem[_moz-menuactive="true"],
+menu[_moz-menuactive="true"] {
+  background-color: var(--warm-hover-bg) !important;
+}
+
+menuseparator {
+  border: none !important;
+  border-top: 1px solid var(--warm-border) !important;
+  margin: 4px 8px !important;
+}
+
+menuitem[disabled="true"] {
+  color: var(--warm-text-placeholder) !important;
+}
+
+/* ============================================================
+   DIALOGS
+   ============================================================ */
+
+dialog,
+.dialogBox {
+  background-color: var(--warm-canvas) !important;
+  border-radius: 8px !important;
+  font-family: var(--warm-font-fun) !important;
+  color: var(--warm-text-primary) !important;
+}
+
+/* ============================================================
+   SCROLLBARS
+   ============================================================ */
+
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: var(--warm-border-strong) transparent !important;
+}
+
+/* ============================================================
+   ICONS
+   ============================================================ */
+
+.unified-toolbar-button img,
+toolbarbutton .toolbarbutton-icon {
+  filter: sepia(0.5) saturate(0.8) brightness(0.7) hue-rotate(-10deg) !important;
+}
+
+#button-newmsg .toolbarbutton-icon {
+  filter: brightness(0) invert(1) !important;
+}
+
+/* ============================================================
+   COMPOSE WINDOW
+   ============================================================ */
+
+#msgcomposeWindow,
+#compose-toolbox {
+  background-color: var(--warm-canvas) !important;
+}
+
+#MsgHeadersToolbar,
+#addressingWidget {
+  background-color: var(--warm-canvas) !important;
+  font-family: var(--warm-font-fun) !important;
+}
+
+.recipient-pill,
+.address-pill {
+  border-radius: 12px !important;
+  background-color: var(--warm-sky) !important;
+  color: white !important;
+}
+
+#msgSubject {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  border: 1px solid var(--warm-border) !important;
+  border-radius: 4px !important;
+  background-color: var(--warm-canvas) !important;
+  color: var(--warm-text-primary) !important;
+}
+
+#FormatToolbar {
+  background-color: var(--warm-surface) !important;
+}
+
+#button-send,
+toolbarbutton[command="cmd_sendNow"] {
+  background-color: var(--warm-honey) !important;
+  color: var(--warm-selected-text) !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+}
+
+/* ============================================================
+   MISC: SPLITTERS, STATUS, INPUTS
+   ============================================================ */
+
+#status-bar,
+.statusbar {
+  background-color: var(--warm-surface) !important;
+  border-top: 1px solid var(--warm-border) !important;
+  font-family: var(--warm-font-fun) !important;
+  color: var(--warm-text-muted) !important;
+}
+
+splitter {
+  background-color: var(--warm-border) !important;
+  border: none !important;
+}
+
+splitter:hover {
+  background-color: var(--warm-honey) !important;
+}
+
+tooltip {
+  background-color: var(--warm-text-primary) !important;
+  color: var(--warm-canvas) !important;
+  border-radius: 4px !important;
+  font-family: var(--warm-font-fun) !important;
+}
+
+textbox,
+input,
+textarea {
+  background-color: var(--warm-canvas) !important;
+  border: 1px solid var(--warm-border) !important;
+  border-radius: 4px !important;
+  color: var(--warm-text-primary) !important;
+  font-family: var(--warm-font-fun) !important;
+}
+
+textbox:focus,
+input:focus,
+textarea:focus {
+  border-color: var(--warm-honey) !important;
+}
+
+button {
+  font-family: var(--warm-font-fun) !important;
+  border-radius: 4px !important;
+}
+
+/* ============================================================
+   LEFT SIDEBAR ICONS (spaces toolbar)
+   ============================================================ */
+
+#spacesToolbar {
+  background-color: var(--warm-surface) !important;
+}
+
+#spacesToolbar button {
+  color: var(--warm-text-muted) !important;
+}
+
+#spacesToolbar button:hover {
+  background-color: var(--warm-hover-bg) !important;
+  color: var(--warm-text-primary) !important;
+}
+
+#spacesToolbar button.current {
+  background-color: var(--warm-honey) !important;
+  color: var(--warm-selected-text) !important;
+}
