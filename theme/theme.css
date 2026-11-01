@@ -50,6 +50,33 @@
   /* Type */
   --warm-font-ui: 'SF Pro Rounded', 'Avenir Next', -apple-system, system-ui, sans-serif;
 
+  /* BEGIN GENERATED ICONS (tools/icons.py) */
+  /* Phosphor 2.1.1, MIT. Masks; colour comes from --icon-color. */
+  --ph-tray: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48cGF0aCBvcGFjaXR5PSIuMiIgZD0iTTIxNiw0OFYxNjBIMTc5LjMxYTgsOCwwLDAsMC01LjY2LDIuMzRsLTE5LjMxLDE5LjMyYTgsOCwwLDAsMS01LjY2LDIuMzRIMTA3LjMxYTgsOCwwLDAsMS01LjY2LTIuMzRMODIuMzQsMTYyLjM0QTgsOCwwLDAsMCw3Ni42OCwxNjBINDBWNDhhOCw4LDAsMCwxLDgtOEgyMDhBOCw4LDAsMCwxLDIxNiw0OFoiLz48cGF0aCBkPSJNMjA4LDMySDQ4QTE2LDE2LDAsMCwwLDMyLDQ4VjIwOGExNiwxNiwwLDAsMCwxNiwxNkgyMDhhMTYsMTYsMCwwLDAsMTYtMTZWNDhBMTYsMTYsMCwwLDAsMjA4LDMyWm0wLDE2VjE1MmgtMjguN0ExNS44NiwxNS44NiwwLDAsMCwxNjgsMTU2LjY5TDE0OC42OSwxNzZIMTA3LjMxTDg4LDE1Ni42OEExNS44OSwxNS44OSwwLDAsMCw3Ni42OSwxNTJINDhWNDhabTAsMTYwSDQ4VjE2OEg3Ni42OUw5NiwxODcuMzJBMTUuODksMTUuODksMCwwLDAsMTA3LjMxLDE5Mmg0MS4zOEExNS44NiwxNS44NiwwLDAsMCwxNjAsMTg3LjMxTDE3OS4zMSwxNjhIMjA4djQwWiIvPjwvc3ZnPg==");
+  --ph-paper-plane-tilt: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48cGF0aCBvcGFjaXR5PSIuMiIgZD0iTTIyMy42OSw0Mi4xOGwtNTguMjIsMTkyYTgsOCwwLDAsMS0xNC45MiwxLjI1TDEwOCwxNDgsMjAuNTgsMTA1LjQ1YTgsOCwwLDAsMSwxLjI1LTE0LjkybDE5Mi01OC4yMkE4LDgsMCwwLDEsMjIzLjY5LDQyLjE4WiIvPjxwYXRoIGQ9Ik0yMjcuMzIsMjguNjhhMTYsMTYsMCwwLDAtMTUuNjYtNC4wOGwtLjE1LDBMMTkuNTcsODIuODRhMTYsMTYsMCwwLDAtMi40OSwyOS44TDEwMiwxNTRsNDEuMyw4NC44N0ExNS44NiwxNS44NiwwLDAsMCwxNTcuNzQsMjQ4cS42OSwwLDEuMzgtLjA2YTE1Ljg4LDE1Ljg4LDAsMCwwLDE0LTExLjUxbDU4LjItMTkxLjk0YzAtLjA1LDAtLjEsMC0uMTVBMTYsMTYsMCwwLDAsMjI3LjMyLDI4LjY4Wk0xNTcuODMsMjMxLjg1bC0uMDUuMTQsMC0uMDctNDAuMDYtODIuMyw0OC00OGE4LDgsMCwwLDAtMTEuMzEtMTEuMzFsLTQ4LDQ4TDI0LjA4LDk4LjI1bC0uMDcsMCwuMTQsMEwyMTYsNDBaIi8+PC9zdmc+");
+  --ph-archive: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48cGF0aCBvcGFjaXR5PSIuMiIgZD0iTTIxNiw5NnY5NmE4LDgsMCwwLDEtOCw4SDQ4YTgsOCwwLDAsMS04LThWOTZaIi8+PHBhdGggZD0iTTIyNCw0OEgzMkExNiwxNiwwLDAsMCwxNiw2NFY4OGExNiwxNiwwLDAsMCwxNiwxNnY4OGExNiwxNiwwLDAsMCwxNiwxNkgyMDhhMTYsMTYsMCwwLDAsMTYtMTZWMTA0YTE2LDE2LDAsMCwwLDE2LTE2VjY0QTE2LDE2LDAsMCwwLDIyNCw0OFpNMjA4LDE5Mkg0OFYxMDRIMjA4Wk0yMjQsODhIMzJWNjRIMjI0Vjg4Wk05NiwxMzZhOCw4LDAsMCwxLDgtOGg0OGE4LDgsMCwwLDEsMCwxNkgxMDRBOCw4LDAsMCwxLDk2LDEzNloiLz48L3N2Zz4=");
+  --ph-trash: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48cGF0aCBvcGFjaXR5PSIuMiIgZD0iTTIwMCw1NlYyMDhhOCw4LDAsMCwxLTgsOEg2NGE4LDgsMCwwLDEtOC04VjU2WiIvPjxwYXRoIGQ9Ik0yMTYsNDhIMTc2VjQwYTI0LDI0LDAsMCwwLTI0LTI0SDEwNEEyNCwyNCwwLDAsMCw4MCw0MHY4SDQwYTgsOCwwLDAsMCwwLDE2aDhWMjA4YTE2LDE2LDAsMCwwLDE2LDE2SDE5MmExNiwxNiwwLDAsMCwxNi0xNlY2NGg4YTgsOCwwLDAsMCwwLTE2Wk05Niw0MGE4LDgsMCwwLDEsOC04aDQ4YTgsOCwwLDAsMSw4LDh2OEg5NlptOTYsMTY4SDY0VjY0SDE5MlpNMTEyLDEwNHY2NGE4LDgsMCwwLDEtMTYsMFYxMDRhOCw4LDAsMCwxLDE2LDBabTQ4LDB2NjRhOCw4LDAsMCwxLTE2LDBWMTA0YTgsOCwwLDAsMSwxNiwwWiIvPjwvc3ZnPg==");
+  --ph-fire: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48cGF0aCBvcGFjaXR5PSIuMiIgZD0iTTIwOCwxNDRhODAsODAsMCwwLDEtMTYwLDBjMC0zMC41NywxNC40Mi01OC4yNiwzMS04MGwzMywzMiwyNi4yNy03MkMxNTkuODYsNDEuOTIsMjA4LDg4LjE1LDIwOCwxNDRaIi8+PHBhdGggZD0iTTE4My44OSwxNTMuMzRhNTcuNiw1Ny42LDAsMCwxLTQ2LjU2LDQ2LjU1QTguNzUsOC43NSwwLDAsMSwxMzYsMjAwYTgsOCwwLDAsMS0xLjMyLTE1Ljg5YzE2LjU3LTIuNzksMzAuNjMtMTYuODUsMzMuNDQtMzMuNDVhOCw4LDAsMCwxLDE1Ljc4LDIuNjhaTTIxNiwxNDRhODgsODgsMCwwLDEtMTc2LDBjMC0yNy45MiwxMS01Ni40NywzMi42Ni04NC44NWE4LDgsMCwwLDEsMTEuOTMtLjg5bDI0LjEyLDIzLjQxLDIyLTYwLjQxYTgsOCwwLDAsMSwxMi42My0zLjQxQzE2NS4yMSwzNiwyMTYsODQuNTUsMjE2LDE0NFptLTE2LDBjMC00Ni4wOS0zNS43OS04NS45Mi01OC4yMS0xMDYuMzNMMTE5LjUyLDk4Ljc0YTgsOCwwLDAsMS0xMy4wOSwzTDgwLjA2LDc2LjE2QzY0LjA5LDk5LjIxLDU2LDEyMiw1NiwxNDRhNzIsNzIsMCwwLDAsMTQ0LDBaIi8+PC9zdmc+");
+  --ph-note-pencil: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48cGF0aCBvcGFjaXR5PSIuMiIgZD0iTTIwMCw4OGwtNzIsNzJIOTZWMTI4bDcyLTcyWiIvPjxwYXRoIGQ9Ik0yMjkuNjYsNTguMzRsLTMyLTMyYTgsOCwwLDAsMC0xMS4zMiwwbC05Niw5NkE4LDgsMCwwLDAsODgsMTI4djMyYTgsOCwwLDAsMCw4LDhoMzJhOCw4LDAsMCwwLDUuNjYtMi4zNGw5Ni05NkE4LDgsMCwwLDAsMjI5LjY2LDU4LjM0Wk0xMjQuNjksMTUySDEwNFYxMzEuMzFsNjQtNjRMMTg4LjY5LDg4Wk0yMDAsNzYuNjksMTc5LjMxLDU2LDE5Miw0My4zMSwyMTIuNjksNjRaTTIyNCwxMjh2ODBhMTYsMTYsMCwwLDEtMTYsMTZINDhhMTYsMTYsMCwwLDEtMTYtMTZWNDhBMTYsMTYsMCwwLDEsNDgsMzJoODBhOCw4LDAsMCwxLDAsMTZINDhWMjA4SDIwOFYxMjhhOCw4LDAsMCwxLDE2LDBaIi8+PC9zdmc+");
+  --ph-file-text: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48cGF0aCBvcGFjaXR5PSIuMiIgZD0iTTIwOCw4OEgxNTJWMzJaIi8+PHBhdGggZD0iTTIxMy42Niw4Mi4zNGwtNTYtNTZBOCw4LDAsMCwwLDE1MiwyNEg1NkExNiwxNiwwLDAsMCw0MCw0MFYyMTZhMTYsMTYsMCwwLDAsMTYsMTZIMjAwYTE2LDE2LDAsMCwwLDE2LTE2Vjg4QTgsOCwwLDAsMCwyMTMuNjYsODIuMzRaTTE2MCw1MS4zMSwxODguNjksODBIMTYwWk0yMDAsMjE2SDU2VjQwaDg4Vjg4YTgsOCwwLDAsMCw4LDhoNDhWMjE2Wm0tMzItODBhOCw4LDAsMCwxLTgsOEg5NmE4LDgsMCwwLDEsMC0xNmg2NEE4LDgsMCwwLDEsMTY4LDEzNlptMCwzMmE4LDgsMCwwLDEtOCw4SDk2YTgsOCwwLDAsMSwwLTE2aDY0QTgsOCwwLDAsMSwxNjgsMTY4WiIvPjwvc3ZnPg==");
+  --ph-folder-simple: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48cGF0aCBvcGFjaXR5PSIuMiIgZD0iTTIyNCw4OFYyMDAuODlhNy4xMSw3LjExLDAsMCwxLTcuMTEsNy4xMUg0MGE4LDgsMCwwLDEtOC04VjY0YTgsOCwwLDAsMSw4LThIOTMuMzNhOCw4LDAsMCwxLDQuOCwxLjZMMTI4LDgwaDg4QTgsOCwwLDAsMSwyMjQsODhaIi8+PHBhdGggZD0iTTIxNiw3MkgxMzAuNjdMMTAyLjkzLDUxLjJhMTYuMTIsMTYuMTIsMCwwLDAtOS42LTMuMkg0MEExNiwxNiwwLDAsMCwyNCw2NFYyMDBhMTYsMTYsMCwwLDAsMTYsMTZIMjE2Ljg5QTE1LjEzLDE1LjEzLDAsMCwwLDIzMiwyMDAuODlWODhBMTYsMTYsMCwwLDAsMjE2LDcyWm0wLDEyOEg0MFY2NEg5My4zM0wxMjMuMiw4Ni40QTgsOCwwLDAsMCwxMjgsODhoODhaIi8+PC9zdmc+");
+  --ph-folder-simple-star: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48cGF0aCBvcGFjaXR5PSIuMiIgZD0iTTIwNS42LDE4My40MSwyMTMuNjcsMjE2LDE4NCwxOTguNTQsMTU0LjMzLDIxNmw4LjA3LTMyLjU5TDEzNiwxNjEuNjFsMzQuNjUtMi42N0wxODQsMTI4bDEzLjM1LDMwLjk0TDIzMiwxNjEuNjFaIi8+PHBhdGggZD0iTTEyOCwyMDhhOCw4LDAsMCwxLTgsOEg0MGExNiwxNiwwLDAsMS0xNi0xNlY2NEExNiwxNiwwLDAsMSw0MCw0OEg5My4zM2ExNi4xMiwxNi4xMiwwLDAsMSw5LjYsMy4yTDEzMC42Nyw3MkgyMTZhMTYsMTYsMCwwLDEsMTYsMTZ2MzJhOCw4LDAsMCwxLTE2LDBWODhIMTI4YTgsOCwwLDAsMS00LjgtMS42TDkzLjMzLDY0SDQwVjIwMGg4MEE4LDgsMCwwLDEsMTI4LDIwOFptMTA5LjA5LTQwLjIyLTIyLjUxLDE4LjU5LDYuODUsMjcuNzFhOCw4LDAsMCwxLTExLjgyLDguODFMMTg0LDIwNy44MmwtMjUuNjEsMTUuMDdhOCw4LDAsMCwxLTExLjgyLTguODFsNi44NS0yNy43MS0yMi41MS0xOC41OWE4LDgsMCwwLDEsNC40Ny0xNC4xNGwyOS44NC0yLjMxLDExLjQzLTI2LjVhOCw4LDAsMCwxLDE0LjcsMGwxMS40MywyNi41LDI5Ljg0LDIuMzFhOCw4LDAsMCwxLDQuNDcsMTQuMTRabS0yNS40Ny4yOC0xNC44OS0xLjE1YTgsOCwwLDAsMS02LjczLTQuOGwtNi0xMy45Mi02LDEzLjkyYTgsOCwwLDAsMS02LjczLDQuOGwtMTQuODksMS4xNSwxMS4xMSw5LjE4YTgsOCwwLDAsMSwyLjY4LDguMDlsLTMuNSwxNC4xMiwxMy4yNy03LjgxYTgsOCwwLDAsMSw4LjEyLDBsMTMuMjcsNy44MS0zLjUtMTQuMTJhOCw4LDAsMCwxLDIuNjgtOC4wOVoiLz48L3N2Zz4=");
+  --ph-rss: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48cGF0aCBvcGFjaXR5PSIuMiIgZD0iTTIxNiwyMDBINTZWNDBBMTYwLDE2MCwwLDAsMSwyMTYsMjAwWiIvPjxwYXRoIGQ9Ik0xMDYuOTEsMTQ5LjA5QTcxLjUzLDcxLjUzLDAsMCwxLDEyOCwyMDBhOCw4LDAsMCwxLTE2LDAsNTYsNTYsMCwwLDAtNTYtNTYsOCw4LDAsMCwxLDAtMTZBNzEuNTMsNzEuNTMsMCwwLDEsMTA2LjkxLDE0OS4wOVpNNTYsODBhOCw4LDAsMCwwLDAsMTZBMTA0LDEwNCwwLDAsMSwxNjAsMjAwYTgsOCwwLDAsMCwxNiwwQTEyMCwxMjAsMCwwLDAsNTYsODBabTExOC43OSwxLjIxQTE2Ni44OSwxNjYuODksMCwwLDAsNTYsMzJhOCw4LDAsMCwwLDAsMTZBMTUxLDE1MSwwLDAsMSwxNjMuNDgsOTIuNTIsMTUxLDE1MSwwLDAsMSwyMDgsMjAwYTgsOCwwLDAsMCwxNiwwQTE2Ni45LDE2Ni45LDAsMCwwLDE3NC43OSw4MS4yMVpNNjAsMTg0YTEyLDEyLDAsMSwwLDEyLDEyQTEyLDEyLDAsMCwwLDYwLDE4NFoiLz48L3N2Zz4=");
+  --ph-envelope-simple: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48cGF0aCBvcGFjaXR5PSIuMiIgZD0iTTIyNCw1NmwtOTYsODhMMzIsNTZaIi8+PHBhdGggZD0iTTIyNCw0OEgzMmE4LDgsMCwwLDAtOCw4VjE5MmExNiwxNiwwLDAsMCwxNiwxNkgyMTZhMTYsMTYsMCwwLDAsMTYtMTZWNTZBOCw4LDAsMCwwLDIyNCw0OFpNMjAzLjQzLDY0LDEyOCwxMzMuMTUsNTIuNTcsNjRaTTIxNiwxOTJINDBWNzQuMTlsODIuNTksNzUuNzFhOCw4LDAsMCwwLDEwLjgyLDBMMjE2LDc0LjE5VjE5MloiLz48L3N2Zz4=");
+  --ph-tray-arrow-up: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48cGF0aCBvcGFjaXR5PSIuMiIgZD0iTTIxNiw0OFYxNjBIMTc5LjMxYTgsOCwwLDAsMC01LjY2LDIuMzRsLTE5LjMxLDE5LjMyYTgsOCwwLDAsMS01LjY2LDIuMzRIMTA3LjMxYTgsOCwwLDAsMS01LjY2LTIuMzRMODIuMzQsMTYyLjM0QTgsOCwwLDAsMCw3Ni42OCwxNjBINDBWNDhhOCw4LDAsMCwxLDgtOEgyMDhBOCw4LDAsMCwxLDIxNiw0OFoiLz48cGF0aCBkPSJNMjA4LDMySDQ4QTE2LDE2LDAsMCwwLDMyLDQ4VjIwOGExNiwxNiwwLDAsMCwxNiwxNkgyMDhhMTYsMTYsMCwwLDAsMTYtMTZWNDhBMTYsMTYsMCwwLDAsMjA4LDMyWm0wLDE2VjE1MmgtMjguN0ExNS44NiwxNS44NiwwLDAsMCwxNjgsMTU2LjY5TDE0OC42OSwxNzZIMTA3LjMxTDg4LDE1Ni42OUExNS44NiwxNS44NiwwLDAsMCw3Ni42OSwxNTJINDhWNDhabTAsMTYwSDQ4VjE2OEg3Ni42OUw5NiwxODcuMzFBMTUuODYsMTUuODYsMCwwLDAsMTA3LjMxLDE5Mmg0MS4zOEExNS44NiwxNS44NiwwLDAsMCwxNjAsMTg3LjMxTDE3OS4zMSwxNjhIMjA4djQwWk05MC4zNCwxMDkuNjZhOCw4LDAsMCwxLDAtMTEuMzJsMzItMzJhOCw4LDAsMCwxLDExLjMyLDBsMzIsMzJhOCw4LDAsMCwxLTExLjMyLDExLjMyTDEzNiw5MS4zMVYxNTJhOCw4LDAsMCwxLTE2LDBWOTEuMzFsLTE4LjM0LDE4LjM1QTgsOCwwLDAsMSw5MC4zNCwxMDkuNjZaIi8+PC9zdmc+");
+  --ph-address-book: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48cGF0aCBvcGFjaXR5PSIuMiIgZD0iTTIwOCwzMkg2NGE4LDgsMCwwLDAtOCw4VjIxNmE4LDgsMCwwLDAsOCw4SDIwOGE4LDgsMCwwLDAsOC04VjQwQTgsOCwwLDAsMCwyMDgsMzJaTTEzNiwxNDRhMzIsMzIsMCwxLDEsMzItMzJBMzIsMzIsMCwwLDEsMTM2LDE0NFoiLz48cGF0aCBkPSJNODMuMTksMTc0LjRhOCw4LDAsMCwwLDExLjIxLTEuNiw1Miw1MiwwLDAsMSw4My4yLDAsOCw4LDAsMSwwLDEyLjgtOS42QTY3Ljg4LDY3Ljg4LDAsMCwwLDE2MywxNDEuNTFhNDAsNDAsMCwxLDAtNTMuOTQsMEE2Ny44OCw2Ny44OCwwLDAsMCw4MS42LDE2My4yLDgsOCwwLDAsMCw4My4xOSwxNzQuNFpNMTEyLDExMmEyNCwyNCwwLDEsMSwyNCwyNEEyNCwyNCwwLDAsMSwxMTIsMTEyWm05Ni04OEg2NEExNiwxNiwwLDAsMCw0OCw0MFY2NEgzMmE4LDgsMCwwLDAsMCwxNkg0OHY0MEgzMmE4LDgsMCwwLDAsMCwxNkg0OHY0MEgzMmE4LDgsMCwwLDAsMCwxNkg0OHYyNGExNiwxNiwwLDAsMCwxNiwxNkgyMDhhMTYsMTYsMCwwLDAsMTYtMTZWNDBBMTYsMTYsMCwwLDAsMjA4LDI0Wm0wLDE5Mkg2NFY0MEgyMDhaIi8+PC9zdmc+");
+  --ph-calendar-blank: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48cGF0aCBvcGFjaXR5PSIuMiIgZD0iTTIxNiw0OFY4OEg0MFY0OGE4LDgsMCwwLDEsOC04SDIwOEE4LDgsMCwwLDEsMjE2LDQ4WiIvPjxwYXRoIGQ9Ik0yMDgsMzJIMTg0VjI0YTgsOCwwLDAsMC0xNiwwdjhIODhWMjRhOCw4LDAsMCwwLTE2LDB2OEg0OEExNiwxNiwwLDAsMCwzMiw0OFYyMDhhMTYsMTYsMCwwLDAsMTYsMTZIMjA4YTE2LDE2LDAsMCwwLDE2LTE2VjQ4QTE2LDE2LDAsMCwwLDIwOCwzMlpNNzIsNDh2OGE4LDgsMCwwLDAsMTYsMFY0OGg4MHY4YTgsOCwwLDAsMCwxNiwwVjQ4aDI0VjgwSDQ4VjQ4Wk0yMDgsMjA4SDQ4Vjk2SDIwOFYyMDhaIi8+PC9zdmc+");
+  --ph-check-square: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48cGF0aCBvcGFjaXR5PSIuMiIgZD0iTTIxNiw0OFYyMDhhOCw4LDAsMCwxLTgsOEg0OGE4LDgsMCwwLDEtOC04VjQ4YTgsOCwwLDAsMSw4LThIMjA4QTgsOCwwLDAsMSwyMTYsNDhaIi8+PHBhdGggZD0iTTE3My42Niw5OC4zNGE4LDgsMCwwLDEsMCwxMS4zMmwtNTYsNTZhOCw4LDAsMCwxLTExLjMyLDBsLTI0LTI0YTgsOCwwLDAsMSwxMS4zMi0xMS4zMkwxMTIsMTQ4LjY5bDUwLjM0LTUwLjM1QTgsOCwwLDAsMSwxNzMuNjYsOTguMzRaTTIyNCw0OFYyMDhhMTYsMTYsMCwwLDEtMTYsMTZINDhhMTYsMTYsMCwwLDEtMTYtMTZWNDhBMTYsMTYsMCwwLDEsNDgsMzJIMjA4QTE2LDE2LDAsMCwxLDIyNCw0OFpNMjA4LDIwOFY0OEg0OFYyMDhIMjA4WiIvPjwvc3ZnPg==");
+  --ph-chat-circle: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48cGF0aCBvcGFjaXR5PSIuMiIgZD0iTTIyNCwxMjhBOTYsOTYsMCwwLDEsNzkuOTMsMjExLjExaDBMNDIuNTQsMjIzLjU4YTgsOCwwLDAsMS0xMC4xMi0xMC4xMmwxMi40Ny0zNy4zOWgwQTk2LDk2LDAsMSwxLDIyNCwxMjhaIi8+PHBhdGggZD0iTTEyOCwyNEExMDQsMTA0LDAsMCwwLDM2LjE4LDE3Ni44OEwyNC44MywyMTAuOTNhMTYsMTYsMCwwLDAsMjAuMjQsMjAuMjRsMzQuMDUtMTEuMzVBMTA0LDEwNCwwLDEsMCwxMjgsMjRabTAsMTkyYTg3Ljg3LDg3Ljg3LDAsMCwxLTQ0LjA2LTExLjgxLDgsOCwwLDAsMC02LjU0LS42N0w0MCwyMTYsNTIuNDcsMTc4LjZhOCw4LDAsMCwwLS42Ni02LjU0QTg4LDg4LDAsMSwxLDEyOCwyMTZaIi8+PC9zdmc+");
+  --ph-gear-six: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48cGF0aCBvcGFjaXR5PSIuMiIgZD0iTTIzMC4xLDEwOC43NiwxOTguMjUsOTAuNjJjLS42NC0xLjE2LTEuMzEtMi4yOS0yLTMuNDFsLS4xMi0zNkExMDQuNjEsMTA0LjYxLDAsMCwwLDE2MiwzMkwxMzAsNDkuODljLTEuMzQsMC0yLjY5LDAtNCwwTDk0LDMyQTEwNC41OCwxMDQuNTgsMCwwLDAsNTkuODksNTEuMjVsLS4xNiwzNmMtLjcsMS4xMi0xLjM3LDIuMjYtMiwzLjQxbC0zMS44NCwxOC4xYTk5LjE1LDk5LjE1LDAsMCwwLDAsMzguNDZsMzEuODUsMTguMTRjLjY0LDEuMTYsMS4zMSwyLjI5LDIsMy40MWwuMTIsMzZBMTA0LjYxLDEwNC42MSwwLDAsMCw5NCwyMjRsMzItMTcuODdjMS4zNCwwLDIuNjksMCw0LDBMMTYyLDIyNGExMDQuNTgsMTA0LjU4LDAsMCwwLDM0LjA4LTE5LjI1bC4xNi0zNmMuNy0xLjEyLDEuMzctMi4yNiwyLTMuNDFsMzEuODQtMTguMUE5OS4xNSw5OS4xNSwwLDAsMCwyMzAuMSwxMDguNzZaTTEyOCwxNjhhNDAsNDAsMCwxLDEsNDAtNDBBNDAsNDAsMCwwLDEsMTI4LDE2OFoiLz48cGF0aCBkPSJNMTI4LDgwYTQ4LDQ4LDAsMSwwLDQ4LDQ4QTQ4LjA1LDQ4LjA1LDAsMCwwLDEyOCw4MFptMCw4MGEzMiwzMiwwLDEsMSwzMi0zMkEzMiwzMiwwLDAsMSwxMjgsMTYwWm0xMDkuOTQtNTIuNzlhOCw4LDAsMCwwLTMuODktNS40bC0yOS44My0xNy0uMTItMzMuNjJhOCw4LDAsMCwwLTIuODMtNi4wOCwxMTEuOTEsMTExLjkxLDAsMCwwLTM2LjcyLTIwLjY3LDgsOCwwLDAsMC02LjQ2LjU5TDEyOCw0MS44NSw5Ny44OCwyNWE4LDgsMCwwLDAtNi40Ny0uNkExMTEuOTIsMTExLjkyLDAsMCwwLDU0LjczLDQ1LjE1YTgsOCwwLDAsMC0yLjgzLDYuMDdsLS4xNSwzMy42NS0yOS44MywxN2E4LDgsMCwwLDAtMy44OSw1LjQsMTA2LjQ3LDEwNi40NywwLDAsMCwwLDQxLjU2LDgsOCwwLDAsMCwzLjg5LDUuNGwyOS44MywxNywuMTIsMzMuNjNhOCw4LDAsMCwwLDIuODMsNi4wOCwxMTEuOTEsMTExLjkxLDAsMCwwLDM2LjcyLDIwLjY3LDgsOCwwLDAsMCw2LjQ2LS41OUwxMjgsMjE0LjE1LDE1OC4xMiwyMzFhNy45MSw3LjkxLDAsMCwwLDMuOSwxLDguMDksOC4wOSwwLDAsMCwyLjU3LS40MiwxMTIuMSwxMTIuMSwwLDAsMCwzNi42OC0yMC43Myw4LDgsMCwwLDAsMi44My02LjA3bC4xNS0zMy42NSwyOS44My0xN2E4LDgsMCwwLDAsMy44OS01LjRBMTA2LjQ3LDEwNi40NywwLDAsMCwyMzcuOTQsMTA3LjIxWm0tMTUsMzQuOTEtMjguNTcsMTYuMjVhOCw4LDAsMCwwLTMsM2MtLjU4LDEtMS4xOSwyLjA2LTEuODEsMy4wNmE3Ljk0LDcuOTQsMCwwLDAtMS4yMiw0LjIxbC0uMTUsMzIuMjVhOTUuODksOTUuODksMCwwLDEtMjUuMzcsMTQuM0wxMzQsMTk5LjEzYTgsOCwwLDAsMC0zLjkxLTFoLS4xOWMtMS4yMSwwLTIuNDMsMC0zLjY0LDBhOC4xLDguMSwwLDAsMC00LjEsMWwtMjguODQsMTYuMUE5Niw5NiwwLDAsMSw2Ny44OCwyMDFsLS4xMS0zMi4yYTgsOCwwLDAsMC0xLjIyLTQuMjJjLS42Mi0xLTEuMjMtMi0xLjgtMy4wNmE4LjA5LDguMDksMCwwLDAtMy0zLjA2bC0yOC42LTE2LjI5YTkwLjQ5LDkwLjQ5LDAsMCwxLDAtMjguMjZMNjEuNjcsOTcuNjNhOCw4LDAsMCwwLDMtM2MuNTgtMSwxLjE5LTIuMDYsMS44MS0zLjA2YTcuOTQsNy45NCwwLDAsMCwxLjIyLTQuMjFsLjE1LTMyLjI1YTk1Ljg5LDk1Ljg5LDAsMCwxLDI1LjM3LTE0LjNMMTIyLDU2Ljg3YTgsOCwwLDAsMCw0LjEsMWMxLjIxLDAsMi40MywwLDMuNjQsMGE4LDgsMCwwLDAsNC4xLTFsMjguODQtMTYuMUE5Niw5NiwwLDAsMSwxODguMTIsNTVsLjExLDMyLjJhOCw4LDAsMCwwLDEuMjIsNC4yMmMuNjIsMSwxLjIzLDIsMS44LDMuMDZhOC4wOSw4LjA5LDAsMCwwLDMsMy4wNmwyOC42LDE2LjI5QTkwLjQ5LDkwLjQ5LDAsMCwxLDIyMi45LDE0Mi4xMloiLz48L3N2Zz4=");
+  --ph-arrow-bend-up-left: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48cGF0aCBvcGFjaXR5PSIuMiIgZD0iTTgwLDU2djk2TDMyLDEwNFoiLz48cGF0aCBkPSJNMTI4LDk2SDg4VjU2YTgsOCwwLDAsMC0xMy42Ni01LjY2bC00OCw0OGE4LDgsMCwwLDAsMCwxMS4zMmw0OCw0OEE4LDgsMCwwLDAsODgsMTUyVjExMmg0MGE4OC4xLDg4LjEsMCwwLDEsODgsODgsOCw4LDAsMCwwLDE2LDBBMTA0LjExLDEwNC4xMSwwLDAsMCwxMjgsOTZaTTcyLDEzMi42OSw0My4zMSwxMDQsNzIsNzUuMzFaIi8+PC9zdmc+");
+  --ph-arrow-bend-double-up-left: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48cGF0aCBvcGFjaXR5PSIuMiIgZD0iTTEyOCw1NnY5Nkw4MCwxMDRaIi8+PHBhdGggZD0iTTg1LjY2LDE0Ni4zNGE4LDgsMCwwLDEtMTEuMzIsMTEuMzJsLTQ4LTQ4YTgsOCwwLDAsMSwwLTExLjMybDQ4LTQ4QTgsOCwwLDAsMSw4NS42Niw2MS42Nkw0My4zMSwxMDRaTTIzMiwyMDBhOCw4LDAsMCwxLTE2LDAsODguMTEsODguMTEsMCwwLDAtODAtODcuNjNWMTUyYTgsOCwwLDAsMS0xMy42Niw1LjY2bC00OC00OGE4LDgsMCwwLDEsMC0xMS4zMmw0OC00OEE4LDgsMCwwLDEsMTM2LDU2Vjk2LjNBMTA0LjE1LDEwNC4xNSwwLDAsMSwyMzIsMjAwWk0xMjAsNzUuMzEsOTEuMzEsMTA0LDEyMCwxMzIuNjlaIi8+PC9zdmc+");
+  --ph-arrow-bend-up-right: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48cGF0aCBvcGFjaXR5PSIuMiIgZD0iTTIyNCwxMDRsLTQ4LDQ4VjU2WiIvPjxwYXRoIGQ9Ik0yMjkuNjYsOTguMzRsLTQ4LTQ4QTgsOCwwLDAsMCwxNjgsNTZWOTZIMTI4QTEwNC4xMSwxMDQuMTEsMCwwLDAsMjQsMjAwYTgsOCwwLDAsMCwxNiwwLDg4LjEsODguMSwwLDAsMSw4OC04OGg0MHY0MGE4LDgsMCwwLDAsMTMuNjYsNS42Nmw0OC00OEE4LDgsMCwwLDAsMjI5LjY2LDk4LjM0Wk0xODQsMTMyLjY5Vjc1LjMxTDIxMi42OSwxMDRaIi8+PC9zdmc+");
+  --ph-star: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48cGF0aCBvcGFjaXR5PSIuMiIgZD0iTTIyOS4wNiwxMDguNzlsLTQ4LjcsNDIsMTQuODgsNjIuNzlhOC40LDguNCwwLDAsMS0xMi41Miw5LjE3TDEyOCwxODkuMDksNzMuMjgsMjIyLjc0YTguNCw4LjQsMCwwLDEtMTIuNTItOS4xN2wxNC44OC02Mi43OS00OC43LTQyQTguNDYsOC40NiwwLDAsMSwzMS43Myw5NEw5NS42NCw4OC44bDI0LjYyLTU5LjZhOC4zNiw4LjM2LDAsMCwxLDE1LjQ4LDBsMjQuNjIsNTkuNkwyMjQuMjcsOTRBOC40Niw4LjQ2LDAsMCwxLDIyOS4wNiwxMDguNzlaIi8+PHBhdGggZD0iTTIzOS4xOCw5Ny4yNkExNi4zOCwxNi4zOCwwLDAsMCwyMjQuOTIsODZsLTU5LTQuNzZMMTQzLjE0LDI2LjE1YTE2LjM2LDE2LjM2LDAsMCwwLTMwLjI3LDBMOTAuMTEsODEuMjMsMzEuMDgsODZhMTYuNDYsMTYuNDYsMCwwLDAtOS4zNywyOC44Nmw0NSwzOC44M0w1MywyMTEuNzVhMTYuMzgsMTYuMzgsMCwwLDAsMjQuNSwxNy44MkwxMjgsMTk4LjQ5bDUwLjUzLDMxLjA4QTE2LjQsMTYuNCwwLDAsMCwyMDMsMjExLjc1bC0xMy43Ni01OC4wNyw0NS0zOC44M0ExNi40MywxNi40MywwLDAsMCwyMzkuMTgsOTcuMjZabS0xNS4zNCw1LjQ3LTQ4LjcsNDJhOCw4LDAsMCwwLTIuNTYsNy45MWwxNC44OCw2Mi44YS4zNy4zNywwLDAsMS0uMTcuNDhjLS4xOC4xNC0uMjMuMTEtLjM4LDBsLTU0LjcyLTMzLjY1YTgsOCwwLDAsMC04LjM4LDBMNjkuMDksMjE1Ljk0Yy0uMTUuMDktLjE5LjEyLS4zOCwwYS4zNy4zNywwLDAsMS0uMTctLjQ4bDE0Ljg4LTYyLjhhOCw4LDAsMCwwLTIuNTYtNy45MWwtNDguNy00MmMtLjEyLS4xLS4yMy0uMTktLjEzLS41cy4xOC0uMjcuMzMtLjI5bDYzLjkyLTUuMTZBOCw4LDAsMCwwLDEwMyw5MS44NmwyNC42Mi01OS42MWMuMDgtLjE3LjExLS4yNS4zNS0uMjVzLjI3LjA4LjM1LjI1TDE1Myw5MS44NmE4LDgsMCwwLDAsNi43NSw0LjkybDYzLjkyLDUuMTZjLjE1LDAsLjI0LDAsLjMzLjI5UzIyNCwxMDIuNjMsMjIzLjg0LDEwMi43M1oiLz48L3N2Zz4=");
+  --ph-star-fill: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48cGF0aCBkPSJNMjM0LjI5LDExNC44NWwtNDUsMzguODNMMjAzLDIxMS43NWExNi40LDE2LjQsMCwwLDEtMjQuNSwxNy44MkwxMjgsMTk4LjQ5LDc3LjQ3LDIyOS41N0ExNi40LDE2LjQsMCwwLDEsNTMsMjExLjc1bDEzLjc2LTU4LjA3LTQ1LTM4LjgzQTE2LjQ2LDE2LjQ2LDAsMCwxLDMxLjA4LDg2bDU5LTQuNzYsMjIuNzYtNTUuMDhhMTYuMzYsMTYuMzYsMCwwLDEsMzAuMjcsMGwyMi43NSw1NS4wOCw1OSw0Ljc2YTE2LjQ2LDE2LjQ2LDAsMCwxLDkuMzcsMjguODZaIi8+PC9zdmc+");
+  --ph-paperclip: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48cGF0aCBvcGFjaXR5PSIuMiIgZD0iTTE4MC43NSwxMDQuNzUsMjA0LDEyOGwtODIuMDYsODEuOTRhNDgsNDgsMCwwLDEtNjcuODgtNjcuODhMMTUzLjM3LDQxLjM3YTMyLDMyLDAsMCwxLDQ1LjI2LDQ1LjI2WiIvPjxwYXRoIGQ9Ik0yMDkuNjYsMTIyLjM0YTgsOCwwLDAsMSwwLDExLjMybC04Mi4wNSw4MmE1Niw1NiwwLDAsMS03OS4yLTc5LjIxTDE0Ny42NywzNS43M2E0MCw0MCwwLDEsMSw1Ni42MSw1Ni41NUwxMDUsMTkzQTI0LDI0LDAsMSwxLDcxLDE1OUwxNTQuMyw3NC4zOEE4LDgsMCwxLDEsMTY1LjcsODUuNkw4Mi4zOSwxNzAuMzFhOCw4LDAsMSwwLDExLjI3LDExLjM2TDE5Mi45Myw4MUEyNCwyNCwwLDEsMCwxNTksNDdMNTkuNzYsMTQ3LjY4YTQwLDQwLDAsMSwwLDU2LjUzLDU2LjYybDgyLjA2LTgyQTgsOCwwLDAsMSwyMDkuNjYsMTIyLjM0WiIvPjwvc3ZnPg==");
+  /* END GENERATED ICONS */
+
   /* ============================================================
      1. CORE PALETTE
      ============================================================ */
@@ -131,6 +158,22 @@
   --folderpane-unread-new-count-background: var(--warm-honey-soft) !important;
   --folderpane-total-count-background: var(--warm-muted) !important;
   --folderpane-total-count-text: var(--warm-text-secondary) !important;
+
+  /* Folder icon colours by role (TB tints each icon: 20% fill + full-colour line) */
+  --folder-color-inbox: light-dark(#C07D12, #E3A93B) !important;
+  --folder-color-sent: light-dark(#4D8B55, #7DB585) !important;
+  --folder-color-archive: light-dark(#4A7FB5, #8DB4DC) !important;
+  --folder-color-draft: light-dark(#9A5B88, #D3A0C4) !important;
+  --folder-color-trash: light-dark(#8B7355, #A8957B) !important;
+  --folder-color-spam: light-dark(#C74A3C, #E07A6C) !important;
+  --folder-color-warning: light-dark(#C74A3C, #E07A6C) !important;
+  --folder-color-folder: light-dark(#B08D57, #CDB38A) !important;
+  --folder-color-folder-filter: light-dark(#D4854A, #E8A877) !important;
+  --folder-color-folder-rss: light-dark(#D4854A, #E8A877) !important;
+  --folder-color-rss: light-dark(#D4854A, #E8A877) !important;
+  --folder-color-outbox: light-dark(#4E9A93, #8CC7C0) !important;
+  --folder-color-template: light-dark(#8B7355, #A8957B) !important;
+  --folder-color-newsletter: light-dark(#8B7355, #A8957B) !important;
 
   /* Message list cards. TB swaps --tree-card-background per state; we feed it. */
   --tree-card-inline: 0px !important;
@@ -224,6 +267,25 @@ tooltip {
   display: none !important;
 }
 
+/* Icons: Phosphor duotone masks over TB's own --icon-color (see tools/icons.py).
+   The transparent content keeps the 16px box and drops TB's glyph. */
+#folderTree .container > .icon {
+  content: linear-gradient(transparent, transparent) !important;
+  background-color: var(--icon-color) !important;
+  mask: var(--ph-folder-simple) center / 16px 16px no-repeat;
+}
+#folderTree li[data-folder-type="inbox"] > .container > .icon { mask-image: var(--ph-tray); }
+#folderTree li[data-folder-type="sent"] > .container > .icon { mask-image: var(--ph-paper-plane-tilt); }
+#folderTree li[data-folder-type="archive"] > .container > .icon { mask-image: var(--ph-archive); }
+#folderTree li[data-folder-type="drafts"] > .container > .icon { mask-image: var(--ph-note-pencil); }
+#folderTree li[data-folder-type="templates"] > .container > .icon { mask-image: var(--ph-file-text); }
+#folderTree li[data-folder-type="trash"] > .container > .icon { mask-image: var(--ph-trash); }
+#folderTree li[data-folder-type="junk"] > .container > .icon { mask-image: var(--ph-fire); }
+#folderTree li[data-folder-type="outbox"] > .container > .icon { mask-image: var(--ph-tray-arrow-up); }
+#folderTree li[data-folder-type="virtual"] > .container > .icon { mask-image: var(--ph-folder-simple-star); }
+#folderTree li[data-server-type="rss"] .container > .icon { mask-image: var(--ph-rss); }
+#folderTree li[data-server-type]:not([data-server-type="none"], [data-server-type="rss"]) > .container > .icon { mask-image: var(--ph-envelope-simple); }
+
 /* Account rows read as quiet section labels, not as folders */
 #folderTree li[data-server-type] > .container {
   min-block-size: 26px;
@@ -302,6 +364,50 @@ tooltip {
 
 .card-layout .read-status {
   fill: var(--warm-honey) !important;
+}
+
+/* ---------- Icons elsewhere: Phosphor masks in the text colour ---------- */
+/* Each glyph is dropped (transparent image keeps the box) and a mask shows currentColor. */
+
+#spacesToolbar .spaces-toolbar-button:is(#mailButton, #addressBookButton, #calendarButton, #tasksButton, #chatButton, #settingsButton) img {
+  content: linear-gradient(transparent, transparent) !important;
+  background-color: currentColor !important;
+  mask: var(--ph-envelope-simple) center / 18px 18px no-repeat;
+}
+#addressBookButton img { mask-image: var(--ph-address-book) !important; }
+#calendarButton img { mask-image: var(--ph-calendar-blank) !important; }
+#tasksButton img { mask-image: var(--ph-check-square) !important; }
+#chatButton img { mask-image: var(--ph-chat-circle) !important; }
+#settingsButton img { mask-image: var(--ph-gear-six) !important; }
+
+:is(#hdrReplyToSenderButton, #hdrReplyButton, #hdrReplyAllButton, #hdrForwardButton, #hdrArchiveButton, #hdrJunkButton, #hdrTrashButton) .toolbarbutton-icon {
+  list-style-image: linear-gradient(transparent, transparent) !important;
+  background-color: currentColor !important;
+  mask: var(--ph-arrow-bend-up-left) center / 16px 16px no-repeat;
+}
+#hdrReplyAllButton .toolbarbutton-icon { mask-image: var(--ph-arrow-bend-double-up-left) !important; }
+#hdrForwardButton .toolbarbutton-icon { mask-image: var(--ph-arrow-bend-up-right) !important; }
+#hdrArchiveButton .toolbarbutton-icon { mask-image: var(--ph-archive) !important; }
+#hdrJunkButton .toolbarbutton-icon { mask-image: var(--ph-fire) !important; }
+#hdrTrashButton .toolbarbutton-icon { mask-image: var(--ph-trash) !important; }
+
+/* Message rows: star (outline off, filled honey on) and paperclip */
+.card-layout .tree-button-flag {
+  background-image: none !important;
+  background-color: var(--warm-text-muted) !important;
+  mask: var(--ph-star) center / 15px 15px no-repeat;
+}
+.card-layout[data-properties~="flagged"] .tree-button-flag {
+  background-color: var(--warm-honey) !important;
+  mask-image: var(--ph-star-fill) !important;
+}
+#threadTree [is="tree-view-table-body"]:is(:focus, :focus-within) .card-layout.selected:not([data-properties~="flagged"]) .tree-button-flag {
+  background-color: var(--warm-on-ink) !important;
+}
+.card-layout .attachment-icon {
+  content: linear-gradient(transparent, transparent) !important;
+  background-color: currentColor !important;
+  mask: var(--ph-paperclip) center / 14px 14px no-repeat;
 }
 
 /* ---------- Reading pane header ---------- */

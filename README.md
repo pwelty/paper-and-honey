@@ -30,6 +30,11 @@ Two add-ons, both standard Thunderbird extensions (no legacy `userChrome.css`, n
   a separate add-on. Plain text gets the full reading treatment; HTML mail only gets inherited
   defaults, so designed newsletters stay intact.
 
+Icons are Phosphor duotone (MIT), applied as CSS masks over Thunderbird's own icon colours
+and generated into `theme.css` by `tools/icons.py`. (Theme stylesheets resolve relative URLs
+against `chrome://messenger/skin/`, and TB won't apply SVG context paint to `data:` images,
+so masks are the route that works.) Folder icons are coloured by role via `--folder-color-*`.
+
 Requires Thunderbird 151+. Thunderbird doesn't require add-on signing, so the `.xpi` files install
 as-is.
 
