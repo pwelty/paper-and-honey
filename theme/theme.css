@@ -290,6 +290,30 @@ tooltip {
 #folderTree li[data-server-type="rss"] .container > .icon { mask-image: var(--ph-rss); }
 #folderTree li[data-server-type]:not([data-server-type="none"], [data-server-type="rss"]) > .container > .icon { mask-image: var(--ph-envelope-simple); }
 
+/* Mode sections (e.g. Favorites above All Folders): quiet labels, a hairline between */
+#folderTree > li + li {
+  border-block-start: 1px solid var(--warm-border);
+  margin-block-start: 6px;
+  padding-block-start: 4px;
+}
+
+#folderTree .mode-container {
+  padding-inline: 8px !important;
+}
+
+#folderTree .mode-name {
+  font-size: 0.8em !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: var(--warm-text-muted) !important;
+}
+
+/* Inside Favorites the account row is redundant: hide it, its folders stay */
+#folderTree > li[data-mode="favorite"] li[data-server-type] > .container {
+  display: none !important;
+}
+
 /* Account rows read as quiet section labels, not as folders */
 #folderTree li[data-server-type] > .container {
   min-block-size: 26px;

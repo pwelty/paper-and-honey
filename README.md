@@ -47,7 +47,9 @@ Set once in Thunderbird (they're preferences, not CSS):
 - Tag colours: warm palette, set in Settings → Tags. The CSS reads each tag's colour, so custom
   tags just work.
 - Density: Compact (View → Density).
-- Folder pane: All Folders mode. Account rows are styled as section labels.
+- Folder pane: Favorites and All Folders modes together (⋯ → Folder Modes), daily folders
+  starred. Favorites is a flat list; under All Folders the account rows stay collapsed and
+  work as the "see all" toggle. Account and mode rows are styled as section labels.
 - Start page off (`mailnews.start_page.enabled = false`).
 
 ## Install
