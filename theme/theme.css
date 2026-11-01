@@ -169,8 +169,6 @@
   --folder-color-warning: light-dark(#C74A3C, #E07A6C) !important;
   --folder-color-folder: light-dark(#B08D57, #CDB38A) !important;
   --folder-color-folder-filter: light-dark(#D4854A, #E8A877) !important;
-  --folder-color-folder-rss: light-dark(#D4854A, #E8A877) !important;
-  --folder-color-rss: light-dark(#D4854A, #E8A877) !important;
   --folder-color-outbox: light-dark(#4E9A93, #8CC7C0) !important;
   --folder-color-template: light-dark(#8B7355, #A8957B) !important;
   --folder-color-newsletter: light-dark(#8B7355, #A8957B) !important;

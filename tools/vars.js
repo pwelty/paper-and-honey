@@ -10,7 +10,7 @@ function scanSheet(sh) {
     if (!r.style) continue;
     for (let i = 0; i < r.style.length; i++) {
       const p = r.style[i], v = r.style.getPropertyValue(p);
-      if (mine && p.startsWith("--") && !p.startsWith("--warm-")) ours.add(p);
+      if (mine && p.startsWith("--") && !/^--(warm|ph)-/.test(p)) ours.add(p);
     }
     if (!mine) for (const m of r.style.cssText.matchAll(/var\((--[\w-]+)/g)) used.add(m[1]);
   }};
