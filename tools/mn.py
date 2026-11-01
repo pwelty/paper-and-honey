@@ -25,7 +25,7 @@ RELOAD = r"""
 const files = arguments[0]; let n = 0;
 function walk(doc) {
   for (const sh of InspectorUtils.getAllStyleSheets(doc)) {
-    const name = sh.href?.startsWith("moz-extension://") && sh.href.split("/").pop();
+    const name = /^(jar|file|moz-extension):/.test(sh.href || "") && sh.href.split("/").pop();
     if (name && name in files) { InspectorUtils.parseStyleSheet(sh, files[name]); n++; }
   }
   for (const b of doc.querySelectorAll("browser, iframe"))

@@ -4,7 +4,7 @@ const hits = new Map(), docs = [];
 function walk(doc) {
   docs.push(doc.documentURI);
   for (const sh of InspectorUtils.getAllStyleSheets(doc)) {
-    if (!/^moz-extension:.*\/theme\.css$/.test(sh.href || "")) continue;
+    if (!/^(jar|file|moz-extension):.*[\/!]theme\.css$/.test(sh.href || "")) continue;
     for (const r of sh.cssRules) {
       if (!r.selectorText) continue;
       for (const part of r.selectorText.split(/,(?![^(]*\))/)) {

@@ -3,7 +3,7 @@ const used = new Set(), ours = new Set(), seen = new Set();
 function scanSheet(sh) {
   if (!sh || seen.has(sh)) return; seen.add(sh);
   let rules; try { rules = sh.cssRules; } catch (e) { return; }
-  const mine = /^moz-extension:.*\/theme\.css$/.test(sh.href || "");
+  const mine = /^(jar|file|moz-extension):.*[\/!]theme\.css$/.test(sh.href || "");
   const visit = list => { for (const r of list) {
     if (r.styleSheet) scanSheet(r.styleSheet);
     if (r.cssRules) visit(r.cssRules);
