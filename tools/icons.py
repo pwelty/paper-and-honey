@@ -53,7 +53,8 @@ def fetch(name: str, weight: str) -> str:
 
 
 def main():
-    lines = [BEGIN, f"  /* Phosphor {VERSION}, MIT. Masks; colour comes from --icon-color. */"]
+    lines = [BEGIN, f"  /* Phosphor Icons {VERSION} (c) 2023 Phosphor Icons, MIT License: see LICENSE-phosphor.txt",
+             "     shipped with this theme. Masks; colour comes from --icon-color. */"]
     for entry in NAMES:
         name, _, weight = entry.partition(":")
         weight = weight or "duotone"

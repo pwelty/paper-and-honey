@@ -90,3 +90,9 @@ Audits, run in the live UI:
 
 By hand: Tools → Developer Tools → Developer Toolbox. Thunderbird's own theme CSS, for names:
 <https://searchfox.org/comm-central/source/mail/themes/>
+
+## Credits
+
+- Icons: [Phosphor Icons](https://phosphoricons.com) 2.1.1, © 2023 Phosphor Icons, MIT License.
+  The full notice ships inside the theme as `theme/LICENSE-phosphor.txt`, as the license requires.
+- Fonts are referenced, not bundled: Charter, Iowan Old Style and SF Pro Rounded come from macOS.
