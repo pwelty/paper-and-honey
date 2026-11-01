@@ -10,7 +10,7 @@ function walk(doc) {
       for (const part of r.selectorText.split(/,(?![^(]*\))/)) {
         const sel = part.trim();
         const probe = sel.replace(/:(hover|focus|focus-within|focus-visible|active|checked|disabled)(?![\w-])/g, "")
-                         .replace(/::?[\w-]+(\([^)]*\))?$/, "") || "*";
+                         .replace(/::[\w-]+(\([^)]*\))?$/, "") || "*";  // pseudo-elements only; :is()/:not() stay
         let n = 0; try { n = doc.querySelectorAll(probe).length; } catch (e) { n = -1; }
         hits.set(sel, (hits.get(sel) || 0) + Math.max(n, 0));
       }

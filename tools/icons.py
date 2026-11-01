@@ -23,6 +23,8 @@ NAMES = [
     "address-book", "calendar-blank", "check-square", "chat-circle", "gear-six",
     "arrow-bend-up-left", "arrow-bend-double-up-left", "arrow-bend-up-right",
     "star", "star:fill", "paperclip",
+    "plus:regular", "cloud-arrow-down", "dots-three", "dots-three-vertical", "sliders-horizontal",
+    "funnel-simple", "list", "arrow-line-left",
 ]
 
 PATH = re.compile(r"<path\b([^>]*)/?>")
@@ -44,7 +46,8 @@ def mask_svg(src: str) -> str:
 
 
 def fetch(name: str, weight: str) -> str:
-    url = f"https://cdn.jsdelivr.net/npm/@phosphor-icons/core@{VERSION}/assets/{weight}/{name}-{weight}.svg"
+    file = name if weight == "regular" else f"{name}-{weight}"  # regular files have no suffix
+    url = f"https://cdn.jsdelivr.net/npm/@phosphor-icons/core@{VERSION}/assets/{weight}/{file}.svg"
     with urllib.request.urlopen(url, timeout=20) as r:
         return r.read().decode()
 
