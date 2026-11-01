@@ -15,6 +15,8 @@ import base64, pathlib, re, urllib.request
 
 VERSION = "2.1.1"
 # name, or name:weight (default duotone). Variable is --ph-<name>[-<weight>].
+# Duotone's faint fill is kept for now; we may switch to plain outlines later (weight
+# "regular": change the default in main() and re-run). See the note in theme.css.
 NAMES = [
     "tray", "paper-plane-tilt", "archive", "trash", "fire", "note-pencil", "file-text",
     "folder-simple", "folder-simple-star", "rss", "envelope-simple", "tray-arrow-up",

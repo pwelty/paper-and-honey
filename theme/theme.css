@@ -299,7 +299,10 @@ tooltip {
 }
 
 /* Icons: Phosphor duotone masks over TB's own --icon-color (see tools/icons.py).
-   The transparent content keeps the 16px box and drops TB's glyph. */
+   The transparent content keeps the 16px box and drops TB's glyph.
+   Open question (Paul, 2026-11-01): the faint duotone fill is fine for now, but it reads a
+   little heavy in the spaces bar. Plain outlines are a one-line switch in tools/icons.py
+   (weight "regular" instead of "duotone"), then re-run it. */
 #folderTree .container > .icon {
   content: linear-gradient(transparent, transparent) !important;
   background-color: var(--icon-color) !important;
