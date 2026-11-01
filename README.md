@@ -26,7 +26,8 @@ Two add-ons, both standard Thunderbird extensions (no legacy `userChrome.css`, n
     Thunderbird's core palette (`--layout-*`) and component variables first, and uses targeted
     rules only where no variable reaches. Colours are `light-dark()` pairs.
 - `reading/` — **Paper & Honey Reading**, an extension that injects `reading.css` into every
-  displayed message (`message_display_scripts`). Themes can't reach message content, hence
+  displayed message (`message_display_scripts`) and `compose.css` into the compose editor
+  (`compose_scripts`, page colour and default ink only; display-only, not sent). Themes can't reach message content, hence
   a separate add-on. Plain text gets the full reading treatment; HTML mail only gets inherited
   defaults, so designed newsletters stay intact.
 
@@ -34,6 +35,10 @@ Icons are Phosphor duotone (MIT), applied as CSS masks over Thunderbird's own ic
 and generated into `theme.css` by `tools/icons.py`. (Theme stylesheets resolve relative URLs
 against `chrome://messenger/skin/`, and TB won't apply SVG context paint to `data:` images,
 so masks are the route that works.) Folder icons are coloured by role via `--folder-color-*`.
+
+Known gap: the multi-message summary (shown when you select a collapsed thread or several
+messages) is a document Thunderbird never applies themes to, its own included, so it keeps
+TB's neutral white/zinc. macOS context menus are native system menus and follow the OS.
 
 Requires Thunderbird 151+. Thunderbird doesn't require add-on signing, so the `.xpi` files install
 as-is.

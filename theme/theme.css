@@ -195,6 +195,9 @@
   --thread-pane-flag-fill: var(--warm-honey) !important;
   --thread-pane-flag-stroke: var(--warm-honey) !important;
   --tree-view-header-hover-bg: var(--warm-hover) !important;
+  --tree-view-bg: var(--warm-canvas) !important;
+  --tree-view-color: var(--warm-text-primary) !important;
+  --thread-line-color: var(--warm-border-strong) !important;
 }
 
 /* ============================================================
@@ -434,6 +437,16 @@ tooltip {
   fill: var(--warm-honey) !important;
 }
 
+/* Thread replies: half the indent (the 12px gutter keeps the connector line) */
+#threadTree .card-layout > td {
+  --thread-child-start: 0px !important;
+}
+
+/* Replied / forwarded / redirected marks: quiet ink, not TB's global purple/blue */
+.card-layout .state {
+  fill: var(--warm-text-muted) !important;
+}
+
 /* "New replies" dot on the thread twisty: honey, not TB's global green (--color-green-*
    is used app-wide, so recolour just this) */
 .card-layout .thread-card-button::before {
@@ -494,6 +507,19 @@ tooltip {
 .message-header-datetime,
 .message-header-label {
   color: var(--warm-text-muted) !important;
+}
+
+/* ---------- Popups ---------- */
+/* TB redefines the panel palette on each popup (neutral surface), so set it there.
+   macOS context menus are native system menus and follow the OS; these rules reach TB's
+   own popups (app menu, ⋯ menus, display options, dropdowns). */
+:is(menupopup, panel):not(.autoscroller) {
+  --panel-background-color: var(--warm-canvas) !important;
+  --panel-text-color: var(--warm-text-primary) !important;
+  --panel-border-color: var(--warm-border) !important;
+  --panel-background-color-dimmed: var(--warm-hover) !important;
+  --panel-background-color-dimmed-further: var(--warm-muted) !important;
+  --panel-background-color-dimmed-even-further: var(--warm-deep) !important;
 }
 
 /* ---------- Window chrome ---------- */

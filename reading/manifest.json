@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Paper & Honey Reading",
-  "description": "Reading typography for message bodies, to go with the Paper & Honey theme.",
-  "version": "0.1.0",
+  "description": "Reading typography for message bodies and a matching compose editor, to go with the Paper & Honey theme.",
+  "version": "0.2.1",
   "author": "Paul Welty",
   "browser_specific_settings": {
     "gecko": {
@@ -11,12 +11,20 @@
     }
   },
   "permissions": [
-    "messagesModify"
+    "messagesModify",
+    "compose"
   ],
   "message_display_scripts": [
     {
       "css": [
         "reading.css"
+      ]
+    }
+  ],
+  "compose_scripts": [
+    {
+      "css": [
+        "compose.css"
       ]
     }
   ]

@@ -1,0 +1,28 @@
+/* Paper & Honey Reading — the compose editor (compose_scripts).
+ * Display only: injected CSS isn't part of the message, so recipients see their own
+ * defaults. Just the page colour and default ink, so the editor matches the window.
+ */
+:root {
+  --c-paper: #FFFDF8;
+  --c-ink: #2C2116;
+  --c-link: #4A7FB5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --c-paper: #1E1914;
+    --c-ink: #F0E6D8;
+    --c-link: #8DB4DC;
+  }
+}
+
+html,
+body {
+  background-color: var(--c-paper) !important;
+  color: var(--c-ink);
+}
+
+/* Links without their own colour (TB's default blue is too dark on espresso) */
+a:not([style*="color"]) {
+  color: var(--c-link);
+}

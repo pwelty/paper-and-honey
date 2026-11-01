@@ -27,8 +27,13 @@
   }
 }
 
+/* Paint the root too: TB gives <html> its own grey/white behind the body */
+:root:has(> body > .moz-text-plain),
 body:has(> .moz-text-plain) {
   background-color: var(--r-paper) !important;
+}
+
+body:has(> .moz-text-plain) {
   padding: 12px 20px !important;
 }
 
