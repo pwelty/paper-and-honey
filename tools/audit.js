@@ -1,10 +1,10 @@
-// For each selector in userChrome.css, count matches across every open chrome document.
+// For each selector in theme/theme.css, count matches across every open chrome document.
 // State pseudo-classes are stripped so :hover/.selected-style rules still count.
 const hits = new Map(), docs = [];
 function walk(doc) {
   docs.push(doc.documentURI);
   for (const sh of InspectorUtils.getAllStyleSheets(doc)) {
-    if (!sh.href?.endsWith("/chrome/userChrome.css")) continue;
+    if (!/^moz-extension:.*\/theme\.css$/.test(sh.href || "")) continue;
     for (const r of sh.cssRules) {
       if (!r.selectorText) continue;
       for (const part of r.selectorText.split(/,(?![^(]*\))/)) {

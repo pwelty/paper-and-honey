@@ -1,9 +1,9 @@
-// Which custom properties set in userChrome.css are actually read by Thunderbird's own CSS?
+// Which custom properties set in theme/theme.css are actually read by Thunderbird's own CSS?
 const used = new Set(), ours = new Set(), seen = new Set();
 function scanSheet(sh) {
   if (!sh || seen.has(sh)) return; seen.add(sh);
   let rules; try { rules = sh.cssRules; } catch (e) { return; }
-  const mine = sh.href?.endsWith("/chrome/userChrome.css");
+  const mine = /^moz-extension:.*\/theme\.css$/.test(sh.href || "");
   const visit = list => { for (const r of list) {
     if (r.styleSheet) scanSheet(r.styleSheet);
     if (r.cssRules) visit(r.cssRules);
