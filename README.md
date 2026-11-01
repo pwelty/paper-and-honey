@@ -56,6 +56,8 @@ Set once in Thunderbird (they're preferences, not CSS):
   starred. Favorites is a flat list; under All Folders the account rows stay collapsed and
   work as the "see all" toggle. Account and mode rows are styled as section labels.
 - Start page off (`mailnews.start_page.enabled = false`).
+- Message header (More → Customize): avatar on, full address off, labels hidden, large
+  subject. The theme moves the subject to the top as a serif headline with tags beside it.
 
 ## Install
 

@@ -231,8 +231,7 @@ tooltip {
 
 .folder-count-badge,
 .button-primary,
-.list-header-title,
-#subjectHeading {
+.list-header-title {
   font-weight: 500 !important;
 }
 
@@ -503,7 +502,39 @@ tooltip {
 
 /* ---------- Reading pane header ---------- */
 
-#subjectHeading {
+/* Compact header (TB setting: name only, no labels, avatar, large subject) with the
+   subject moved to the top as a serif headline, matching the message body. One layer of
+   spacing: even padding, small row gap. */
+#messageHeader {
+  padding: 10px 14px 8px !important;
+  row-gap: 3px !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+}
+
+/* Row 1: subject left, tags right. Every other row spans the width below it. */
+#messageHeader > * {
+  grid-column: 1 / -1;
+}
+
+#headerSubjectSecurityContainer {
+  grid-column: 1;
+  grid-row: 1;
+  margin-block-end: 3px;
+}
+
+#expandedtagsRow {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  justify-self: end;
+}
+
+#expandedsubjectBox,
+#expandedsubjectBox span:not(.screen-reader-only) {
+  font-family: Charter, 'Iowan Old Style', Georgia, serif !important;
+  font-size: 19px !important;
+  font-weight: 400 !important;
+  line-height: 1.25 !important;
   color: var(--warm-text-strong) !important;
 }
 
