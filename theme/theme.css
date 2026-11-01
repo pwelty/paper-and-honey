@@ -414,8 +414,31 @@ tooltip {
   fill: var(--warm-on-ink) !important;
 }
 
+/* Buttons on the ink selection (thread twisty, star, menu): hover is a cream wash, not
+   TB's tan, which put cream icons on tan. */
+#threadTree [is="tree-view-table-body"]:is(:focus, :focus-within) .card-layout.selected button:hover {
+  background-color: rgb(255 253 248 / 0.18) !important;
+}
+
+/* The thread twisty is a pill with a tan fill at rest; on the ink selection it's a cream wash */
+#threadTree [is="tree-view-table-body"]:is(:focus, :focus-within) .card-layout.selected .thread-card-button {
+  color: var(--warm-on-ink) !important;
+  background-color: rgb(255 253 248 / 0.14) !important;
+}
+
+#threadTree [is="tree-view-table-body"]:is(:focus, :focus-within) .card-layout.selected .thread-card-button:hover {
+  background-color: rgb(255 253 248 / 0.26) !important;
+}
+
 .card-layout .read-status {
   fill: var(--warm-honey) !important;
+}
+
+/* "New replies" dot on the thread twisty: honey, not TB's global green (--color-green-*
+   is used app-wide, so recolour just this) */
+.card-layout .thread-card-button::before {
+  fill: var(--warm-honey) !important;
+  stroke: var(--warm-honey-deep) !important;
 }
 
 /* ---------- Icons elsewhere: Phosphor masks in the text colour ---------- */
