@@ -74,8 +74,8 @@ masks are the route that works.)
 ## License
 
 Paper & Honey is © 2026 Paul Welty, licensed under
-[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) (full text in `LICENSE`, which also ships
-inside both add-ons). Share and adapt it freely; credit is the condition:
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) (full text in `LICENSE`; copyright and credit wording in `NOTICE`;
+both ship inside both add-ons). Share and adapt it freely; credit is the condition:
 
 > "Paper & Honey" by Paul Welty (https://paulwelty.com/apps/paper-and-honey/), licensed under
 > CC BY 4.0 — plus a note if you changed it.

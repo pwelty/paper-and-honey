@@ -1,5 +1,5 @@
 /* Paper & Honey Reading — injected into every displayed message (message_display_scripts).
- * © 2026 Paul Welty, CC BY 4.0 (see LICENSE). https://paulwelty.com/apps/paper-and-honey/
+ * © 2026 Paul Welty, CC BY 4.0 (see NOTICE and LICENSE). https://paulwelty.com/apps/paper-and-honey/
  * Message content can't see the theme's variables, so values are hardcoded; keep them in
  * sync with the tokens in theme/theme.css.
  *
