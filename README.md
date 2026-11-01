@@ -1,88 +1,74 @@
-# Thunderbird, but lovely
+# Paper & Honey
 
-Thunderbird is the right mail client: open, local, scriptable, no lock-in. It is also _so ugly_.
-This project makes it something that feels like a small reward to open.
+Thunderbird is the right mail client: open, local, scriptable, no lock-in. It is also _so ugly_,
+and the user-made themes are uglier. This project makes it something that feels like a small
+reward to open.
 
 ## Design intent
 
-- **Warm paper.** Cream canvas, brown ink, honey accent. Not sterile-minimal, not Win95.
-- **Reading is the point.** Message bodies in a real reading serif (Charter), generous line height.
-- **Calm list.** Flat, dense message list. Unread is signalled by colour, never by weight, so
-  rows don't jiggle as mail gets read.
+- **Warm paper.** Cream canvas, brown ink, honey accent. Espresso in dark mode. Not
+  sterile-minimal, not Win95.
+- **Reading is the point.** Message bodies in a real reading serif (Charter), generous leading.
+- **Calm list.** Flat, two-line message list. Unread is darker ink, never bolder, so rows don't
+  jiggle as mail gets read.
 - **Tags as colour.** Tagged messages get a coloured edge and a soft tint.
 - **Personality allowed.** Rounded UI font, odd touches welcome.
 
-## How it works
+## What's in here
 
-Two stylesheets, loaded by Thunderbird from the profile's `chrome/` folder:
+Two add-ons, both standard Thunderbird extensions (no legacy `userChrome.css`, no profile hacks):
 
-- `userChrome.css` — the app UI (folder pane, message list, toolbars, menus, compose).
-  Strategy: override Thunderbird's own CSS variables first, then target elements the
-  variables don't reach.
-- `userContent.css` — message bodies (and anything rendered as web content).
+- `theme/` — **Paper & Honey**, a theme.
+  - `manifest.json` colours the window frame (toolbar, tabs, search, popups, folder tree), with a
+    `dark_theme` block Thunderbird switches to in dark mode.
+  - `theme.css` themes everything inside, loaded via `theme_experiment`. It remaps
+    Thunderbird's core palette (`--layout-*`) and component variables first, and uses targeted
+    rules only where no variable reaches. Colours are `light-dark()` pairs.
+- `reading/` — **Paper & Honey Reading**, an extension that injects `reading.css` into every
+  displayed message (`message_display_scripts`). Themes can't reach message content, hence
+  a separate add-on. Plain text gets the full reading treatment; HTML mail only gets inherited
+  defaults, so designed newsletters stay intact.
 
-Thunderbird only reads these when `toolkit.legacyUserProfileCustomizations.stylesheets` is
-`true`. The install script sets that.
+Requires Thunderbird 151+. Thunderbird doesn't require add-on signing, so the `.xpi` files install
+as-is.
 
-Target: macOS (averroes). Fonts assume macOS (Charter, Iowan Old Style, Avenir Next).
+### Thunderbird settings the design relies on
+
+Set once in Thunderbird (they're preferences, not CSS):
+
+- Message list: card view, **two rows** (`mail.threadpane.cardsview.rowcount = 2`). Row height is
+  fixed by Thunderbird's JS, so CSS can't do this.
+- Tag colours: warm palette, set in Settings → Tags. The CSS reads each tag's colour, so custom
+  tags just work.
 
 ## Install
 
-```sh
-./install.sh            # links into the default Thunderbird profile
-./install.sh <profile>  # or a specific profile directory
-```
+`tools/build.sh` writes `dist/*.xpi`. In Thunderbird: Add-ons and Themes → ⚙ → Install Add-on
+From File… → pick each `.xpi`.
 
-It symlinks both files into `<profile>/chrome/`, so edits here are live after a Thunderbird
-restart. Any existing non-symlinked files are moved aside as `*.bak`. It also adds the pref to
-`<profile>/user.js`.
+## Working on it
 
-Quit Thunderbird before installing; restart to see changes.
-
-## Iterating
-
-Claude works against the real Thunderbird on averroes, from the Linux box, over Tailscale SSH:
+Claude works against the real Thunderbird on averroes from the Linux box, over Tailscale SSH,
+through Marionette (Thunderbird's automation protocol):
 
 ```sh
-tools/launch-averroes.sh                       # restart TB with Marionette, tunnel :2828
-python3 tools/mn.py shot shots/now.png         # screenshot the main window
-python3 tools/mn.py js 'return document.title' # run JS in the chrome (UI) context
+tools/launch-averroes.sh            # restart TB with Marionette + chrome access, tunnel :2828
+python3 tools/mn.py shot shots/x.png   # screenshot the main window
+python3 tools/mn.py js 'return …'      # run JS in the chrome (UI) context
+python3 tools/mn.py reload             # hot-swap theme.css in the running TB, no restart
+tools/dev.sh                        # temporary install of both add-ons from this folder
+tools/install-averroes.sh           # build + permanent install
 ```
 
-Marionette needs `--marionette` plus `MOZ_REMOTE_ALLOW_SYSTEM_ACCESS=1` to touch the UI.
-Stylesheets reload only on restart, so each CSS change is: edit → launch → shot.
-`~/Projects` on averroes is a mount of this folder, so edits here are live there.
+Marionette needs `--marionette` plus `MOZ_REMOTE_ALLOW_SYSTEM_ACCESS=1` to touch the UI;
+`launch-averroes.sh` sets both. `reading.css` changes need `dev.sh` (it reloads the open message).
 
-By hand, use the Browser Toolbox to inspect the real DOM instead of guessing selectors:
-**Tools → Developer Tools → Developer Toolbox** (enable `devtools.chrome.enabled` and
-`devtools.debugger.remote-enabled` in the Config Editor first). The Style Editor there can
-edit `userChrome.css` live.
+Audits, run in the live UI:
 
-Thunderbird's own theme CSS, for variable names: <https://searchfox.org/comm-central/source/mail/themes/>
+- `python3 tools/mn.py js - < tools/audit.js` — selectors in `theme.css` that match nothing in
+  any open window (expect misses only for windows/states not on screen).
+- `python3 tools/mn.py js - < tools/vars.js` — variables `theme.css` sets that Thunderbird never
+  reads.
 
-## Known problems
-
-Found reviewing the first (agent-built, never-inspected) pass:
-
-- Selected messages: sender/subject stay brown on the honey background (the read/unread
-  colour rules out-specify the selected-text rule). Nearly unreadable.
-- Tag tints override the selection background; hover overrides it too, leaving cream text on
-  a pale tint.
-- `.card-layout .card-container { background: transparent }` may be hiding Thunderbird's own
-  selection painting.
-- `userContent.css`: `.moz-text-html body` never matches (the div is inside `<body>`), so HTML
-  mail gets none of the reading styles. No compose-body rules despite the comment.
-- Honey + cream text is ~3.3:1 contrast on small text (New Message, Send, badges).
-- Stale/guessed selectors from pre-Supernova Thunderbird (`textbox`, `#mail-toolbox`,
-  `#searchInput`, `#button-newmsg`, `.dialogBox`…). Needs a pass with the Browser Toolbox.
-- Over-broad element rules (`toolbarbutton`, `button`, `input`, `menupopup`) restyle every
-  dialog and settings page.
-- Toolbar icons tinted with a `sepia()` filter chain; the icons are SVGs that follow `color`.
-- No dark mode: in macOS dark appearance, unthemed areas go dark and clash.
-- Tag colours hard-coded for the five default tags only.
-
-## Open questions
-
-- Ship the palette as a Thunderbird theme add-on (portable, no pref flag) and keep
-  `userChrome.css` for only what themes can't reach?
-- Dark mode: a warm dark variant, or force light?
+By hand: Tools → Developer Tools → Developer Toolbox. Thunderbird's own theme CSS, for names:
+<https://searchfox.org/comm-central/source/mail/themes/>

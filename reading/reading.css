@@ -1,0 +1,69 @@
+/* Paper & Honey Reading — injected into every displayed message (message_display_scripts).
+ * Message content can't see the theme's variables, so values are hardcoded; keep them in
+ * sync with the tokens in theme/theme.css.
+ *
+ * TB wraps each body in <div class="moz-text-plain"> or <div class="moz-text-html"> inside
+ * <body>. Plain text gets the full reading treatment (!important). HTML mail only gets
+ * inherited defaults on the wrapper, so anything the email styles itself wins: plain HTML
+ * reads nicely and designed newsletters stay intact.
+ */
+
+:root {
+  --r-paper: #FFFDF8;
+  --r-ink: #2C2116;
+  --r-muted: #8B7355;
+  --r-rule: #E8DCC8;
+  --r-link: #4A7FB5;
+  --r-serif: Charter, 'Iowan Old Style', Georgia, serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --r-paper: #1E1914;
+    --r-ink: #F0E6D8;
+    --r-muted: #A8957B;
+    --r-rule: #3E352B;
+    --r-link: #8DB4DC;
+  }
+}
+
+body:has(> .moz-text-plain) {
+  background-color: var(--r-paper) !important;
+  padding: 12px 20px !important;
+}
+
+/* Plain text */
+.moz-text-plain,
+.moz-text-plain pre,
+.moz-text-flowed {
+  font-family: var(--r-serif) !important;
+  font-size: 15px !important;
+  line-height: 1.65 !important;
+  color: var(--r-ink) !important;
+  white-space: pre-wrap !important;
+}
+
+.moz-text-plain a {
+  color: var(--r-link) !important;
+}
+
+/* HTML: inherited defaults only */
+.moz-text-html {
+  font-family: var(--r-serif);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* Quoted replies */
+blockquote[type="cite"] {
+  border-inline-start: 3px solid var(--r-rule) !important;
+  padding-inline-start: 12px !important;
+  margin-inline-start: 0 !important;
+  color: var(--r-muted) !important;
+}
+
+/* Signatures */
+.moz-txt-sig,
+.moz-signature {
+  color: var(--r-muted) !important;
+}

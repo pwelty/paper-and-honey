@@ -1,0 +1,271 @@
+/* Paper & Honey — theme stylesheet (loaded via theme_experiment in manifest.json).
+ * The manifest's colours theme the window frame; this sheet themes everything inside.
+ *
+ * Layers, in order of preference:
+ *   1. Remap Thunderbird's core palette (--layout-*). Most surfaces derive from it.
+ *   2. Set component variables TB reads (sidebar, list, cards, buttons, panels…).
+ *   3. Targeted rules only where no variable reaches. Every selector here was checked
+ *      against the live DOM (tools/audit.js); every variable against TB's CSS (tools/vars.js).
+ *
+ * Colours are light-dark() pairs: warm paper in light mode, espresso in dark mode.
+ * TB source for names: https://searchfox.org/comm-central/source/mail/themes/
+ */
+
+/* ============================================================
+   TOKENS
+   ============================================================ */
+
+:root {
+  /* Surfaces, lightest → deepest */
+  --warm-canvas:   light-dark(#FFFDF8, #1E1914);
+  --warm-surface:  light-dark(#FAF6F1, #26201A);
+  --warm-raised:   light-dark(#F4EDE3, #2F2820);
+  --warm-muted:    light-dark(#F0E6D8, #3B3228);
+  --warm-deep:     light-dark(#E2D5C2, #4A3F33);
+
+  --warm-border:        light-dark(#E8DCC8, #3E352B);
+  --warm-border-strong: light-dark(#D4C4AC, #54493C);
+
+  /* Ink */
+  --warm-text-strong:    light-dark(#1A130C, #FBF5EC);
+  --warm-text-primary:   light-dark(#2C2116, #F0E6D8);
+  --warm-text-secondary: light-dark(#5C4D3C, #D4C4AC);
+  --warm-text-muted:     light-dark(#8B7355, #A8957B);
+
+  /* Accents */
+  --warm-honey:       #C07D12;
+  --warm-honey-hover: #D48E15;
+  --warm-on-honey:    #2C2116;    /* dark ink on honey: ~4.6:1; cream would be 3.3:1 */
+  --warm-poppy:       #C74A3C;
+
+  /* Selection */
+  --warm-ink:          light-dark(#5C4D3C, #6E5C47);   /* focused selection, cream text ~8:1 */
+  --warm-on-ink:       #FFFDF8;
+  --warm-selected-dim: var(--warm-muted);               /* unfocused selection */
+  --warm-hover:        var(--warm-muted);
+
+  /* Type */
+  --warm-font-ui: 'SF Pro Rounded', 'Avenir Next', -apple-system, system-ui, sans-serif;
+
+  /* ============================================================
+     1. CORE PALETTE
+     ============================================================ */
+  --layout-background-0: var(--warm-canvas) !important;
+  --layout-background-1: var(--warm-surface) !important;
+  --layout-background-2: var(--warm-raised) !important;
+  --layout-background-3: var(--warm-muted) !important;
+  --layout-background-4: var(--warm-deep) !important;
+  --layout-color-0: var(--warm-text-strong) !important;
+  --layout-color-1: var(--warm-text-primary) !important;
+  --layout-color-2: var(--warm-text-secondary) !important;
+  --layout-color-3: var(--warm-text-muted) !important;
+  --layout-border-0: var(--warm-border) !important;
+  --layout-border-1: var(--warm-border-strong) !important;
+  --layout-border-2: var(--warm-text-muted) !important;
+
+  --color-accent-primary: var(--warm-honey) !important;
+  --color-accent-primary-hover: var(--warm-honey-hover) !important;
+
+  /* ============================================================
+     2. COMPONENT VARIABLES
+     ============================================================ */
+
+  /* Toolbars, tabs, search */
+  --toolbar-background-color: var(--warm-surface) !important;
+  --toolbar-text-color: var(--warm-text-secondary) !important;
+  --toolbar-button-hover-background-color: var(--warm-hover) !important;
+  --tabs-toolbar-background-color: var(--warm-muted) !important;
+  --tabline-color: var(--warm-honey) !important;
+  --search-bar-background: var(--warm-canvas) !important;
+  --search-bar-focus-background: var(--warm-canvas) !important;
+  --search-bar-color: var(--warm-text-primary) !important;
+
+  /* Spaces bar (far left) */
+  --spaces-button-active-bg-color: var(--warm-honey) !important;
+  --spaces-button-active-text-color: var(--warm-on-honey) !important;
+
+  /* Buttons */
+  --button-primary-background-color: var(--warm-honey) !important;
+  --button-primary-hover-background-color: var(--warm-honey-hover) !important;
+  --button-primary-active-background-color: var(--warm-honey-hover) !important;
+  --button-primary-border-color: transparent !important;
+  --button-primary-text-color: var(--warm-on-honey) !important;
+  --button-background-color-primary: var(--warm-honey) !important;
+  --button-background-color-primary-hover: var(--warm-honey-hover) !important;
+  --button-background-color-primary-active: var(--warm-honey-hover) !important;
+  --button-text-color-primary: var(--warm-on-honey) !important;
+  --button-text-color-primary-hover: var(--warm-on-honey) !important;
+
+  /* Inputs */
+  --input-background-color: var(--warm-canvas) !important;
+  --input-border-color: var(--warm-border-strong) !important;
+  --input-text-color: var(--warm-text-primary) !important;
+
+  /* Menus and popups */
+  --panel-background-color: var(--warm-canvas) !important;
+  --panel-text-color: var(--warm-text-primary) !important;
+  --panel-separator-color: var(--warm-border) !important;
+  --panel-border-radius: 8px !important;
+
+  /* Sidebar + folder pane */
+  --sidebar-background-color: var(--warm-surface) !important;
+  --sidebar-background: var(--warm-surface) !important;
+  --sidebar-text-color: var(--warm-text-secondary) !important;
+  --sidebar-border-color: var(--warm-border) !important;
+  --list-container-background-selected: var(--warm-selected-dim) !important;
+  --list-container-background-selected-current: var(--warm-selected-dim) !important;
+  --list-container-border-selected: transparent !important;
+  --list-container-border-selected-current: transparent !important;
+  --treeitem-background-active: var(--warm-ink) !important;
+  --treeitem-text-active: var(--warm-on-ink) !important;
+  --selected-item-color: var(--warm-ink) !important;
+  --selected-item-text-color: var(--warm-on-ink) !important;
+  --listbox-focused-selected-bg: var(--warm-ink) !important;
+  --folderpane-unread-count-background: var(--warm-honey) !important;
+  --folderpane-unread-count-text: var(--warm-on-honey) !important;
+  --folderpane-unread-new-count-background: var(--warm-honey) !important;
+
+  /* Message list cards. TB swaps --tree-card-background per state; we feed it. */
+  --tree-card-inline: 0px !important;
+  --tree-card-background: var(--warm-canvas) !important;
+  --tree-card-border: transparent !important;
+  --tree-card-background-current: var(--warm-hover) !important;
+  --tree-card-background-current-unfocused: var(--warm-hover) !important;
+  --tree-card-background-selected: var(--warm-ink) !important;
+  --tree-card-background-selected-current: var(--warm-ink) !important;
+  --tree-card-border-selected: var(--warm-ink) !important;
+  --tree-card-background-selected-unfocused: var(--warm-selected-dim) !important;
+  --tree-card-background-selected-current-unfocused: var(--warm-selected-dim) !important;
+  --tree-card-border-selected-unfocused: var(--warm-selected-dim) !important;
+  --new-subject-color: var(--warm-text-primary) !important;
+  --new-color: var(--warm-text-primary) !important;
+  --unread-color: var(--warm-text-primary) !important;
+  --thread-line-height: 1.4 !important;
+  --thread-pane-flag-fill: var(--warm-honey) !important;
+  --thread-pane-flag-stroke: var(--warm-honey) !important;
+  --tree-view-header-hover-bg: var(--warm-hover) !important;
+}
+
+/* ============================================================
+   3. TARGETED RULES
+   ============================================================ */
+
+/* One UI typeface everywhere. Family only — sizes follow TB's own font-size setting. */
+:root,
+button,
+input,
+select,
+menupopup,
+tooltip {
+  font-family: var(--warm-font-ui) !important;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--warm-border-strong) transparent;
+}
+
+/* ---------- Folder pane ---------- */
+
+#folderTree {
+  --listbox-border-radius: 4px;
+}
+
+/* Subfolders: TB indents ~20px per level */
+#folderTree li ul {
+  padding-inline-start: 10px !important;
+}
+
+#folderTree li > .container {
+  padding-inline: 4px !important;
+}
+
+/* ---------- Message list ---------- */
+/* Row height is fixed by JS: mail.threadpane.cardsview.rowcount (2 → 46px). */
+
+#threadTree {
+  --listbox-border-radius: 0px;
+}
+
+/* Flat list: a hairline between rows */
+.card-layout .card-container {
+  border-width: 0 0 1px 0 !important;
+  border-color: var(--warm-border) !important;
+}
+
+.card-layout:not(.selected):hover {
+  --tree-card-background: var(--warm-hover) !important;
+}
+
+/* Tags: coloured edge + soft tint from TB's per-tag --tag-color (tag colours live in
+   TB's tag settings, so renamed and custom tags just work). */
+.card-layout[data-properties~="tagged"] .card-container {
+  box-shadow: inset 4px 0 0 var(--tag-color, var(--warm-border-strong)) !important;
+}
+
+.card-layout[data-properties~="tagged"]:not(.selected) {
+  --tree-card-background: color-mix(in srgb, var(--tag-color, transparent) 12%, var(--warm-canvas)) !important;
+}
+
+.card-layout[data-properties~="tagged"]:not(.selected):hover {
+  --tree-card-background: color-mix(in srgb, var(--tag-color, transparent) 22%, var(--warm-canvas)) !important;
+}
+
+#threadTree tr.table-layout[data-properties~="tagged"]:not(.selected) {
+  background-color: color-mix(in srgb, var(--tag-color, transparent) 12%, var(--warm-canvas)) !important;
+}
+
+/* One weight everywhere, so rows never jiggle when read. Unread = darker ink. */
+.card-layout :is(.sender, .subject, .date) {
+  font-weight: 400 !important;
+}
+
+.card-layout[data-properties~="unread"] .sender { color: var(--warm-text-primary) !important; }
+.card-layout[data-properties~="unread"] .subject { color: var(--warm-text-secondary) !important; }
+.card-layout:not([data-properties~="unread"]) .sender { color: var(--warm-text-secondary) !important; }
+.card-layout:not([data-properties~="unread"]) .subject,
+.card-layout .date { color: var(--warm-text-muted) !important; }
+
+/* Selection text. The id outranks the read/unread rules above. */
+#threadTree .card-layout.selected :is(.sender, .subject, .date) {
+  color: var(--warm-text-primary) !important;
+}
+
+#threadTree:focus-within .card-layout.selected :is(.sender, .subject, .date, .tree-button-flag, .tree-button-more) {
+  color: var(--warm-on-ink) !important;
+  fill: var(--warm-on-ink) !important;
+}
+
+.card-layout .read-status {
+  fill: var(--warm-honey) !important;
+}
+
+/* ---------- Reading pane header ---------- */
+
+#subjectHeading {
+  font-weight: 600 !important;
+  color: var(--warm-text-strong) !important;
+}
+
+.message-header-datetime,
+.message-header-label {
+  color: var(--warm-text-muted) !important;
+}
+
+/* ---------- Window chrome ---------- */
+
+.tab-close-button:hover {
+  background-color: var(--warm-poppy) !important;
+  color: var(--warm-on-ink) !important;
+}
+
+splitter:hover {
+  background-color: var(--warm-honey) !important;
+}
+
+tooltip {
+  appearance: none !important;
+  background-color: var(--warm-text-primary) !important;
+  color: var(--warm-canvas) !important;
+  border-radius: 4px !important;
+}

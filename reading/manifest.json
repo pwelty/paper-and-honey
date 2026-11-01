@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Paper & Honey Reading",
+  "description": "Reading typography for message bodies, to go with the Paper & Honey theme.",
+  "version": "0.1.0",
+  "author": "Paul Welty",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "paper-and-honey-reading@paulwelty.com",
+      "strict_min_version": "151.0"
+    }
+  },
+  "permissions": [
+    "messagesModify"
+  ],
+  "message_display_scripts": [
+    {
+      "css": [
+        "reading.css"
+      ]
+    }
+  ]
+}
