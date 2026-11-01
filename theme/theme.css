@@ -36,12 +36,15 @@
   --warm-honey:       #C07D12;
   --warm-honey-hover: #D48E15;
   --warm-on-honey:    #2C2116;    /* dark ink on honey: ~4.6:1; cream would be 3.3:1 */
+  --warm-honey-deep:  light-dark(#9A5F00, #E3A93B);   /* honey as text: ~5:1 on canvas */
+  --warm-honey-soft:  light-dark(#F5E2B8, #4A3A1C);
+  --warm-on-honey-soft: light-dark(#6B4306, #F3CF85);  /* ~7:1 on honey-soft, both modes */
   --warm-poppy:       #C74A3C;
 
   /* Selection */
   --warm-ink:          light-dark(#5C4D3C, #6E5C47);   /* focused selection, cream text ~8:1 */
   --warm-on-ink:       #FFFDF8;
-  --warm-selected-dim: var(--warm-muted);               /* unfocused selection */
+  --warm-selected-dim: var(--warm-deep);                /* unfocused/folder selection: a step deeper than hover */
   --warm-hover:        var(--warm-muted);
 
   /* Type */
@@ -64,6 +67,8 @@
   --layout-border-2: var(--warm-text-muted) !important;
 
   --color-accent-primary: var(--warm-honey) !important;
+  --font-weight-heading: 500 !important;
+  --new-folder-color: var(--warm-honey-deep) !important;
   --color-accent-primary-hover: var(--warm-honey-hover) !important;
 
   /* ============================================================
@@ -121,9 +126,11 @@
   --selected-item-color: var(--warm-ink) !important;
   --selected-item-text-color: var(--warm-on-ink) !important;
   --listbox-focused-selected-bg: var(--warm-ink) !important;
-  --folderpane-unread-count-background: var(--warm-honey) !important;
-  --folderpane-unread-count-text: var(--warm-on-honey) !important;
-  --folderpane-unread-new-count-background: var(--warm-honey) !important;
+  --folderpane-unread-count-background: var(--warm-honey-soft) !important;
+  --folderpane-unread-count-text: var(--warm-on-honey-soft) !important;
+  --folderpane-unread-new-count-background: var(--warm-honey-soft) !important;
+  --folderpane-total-count-background: var(--warm-muted) !important;
+  --folderpane-total-count-text: var(--warm-text-secondary) !important;
 
   /* Message list cards. TB swaps --tree-card-background per state; we feed it. */
   --tree-card-inline: 0px !important;
@@ -160,24 +167,77 @@ tooltip {
   font-family: var(--warm-font-ui) !important;
 }
 
+/* No bold anywhere: at small sizes it mushes the type. Emphasis is colour; the most a
+   label gets is medium (500). */
+#folderTree .name,
+.card-layout :is(.sender, .subject, .date) {
+  font-weight: 400 !important;
+}
+
+#folderTree li:is(.unread, .new-messages) > .container > .name {
+  color: var(--warm-text-strong) !important;
+}
+
+#folderTree li.new-messages > .container > .name {
+  color: var(--warm-honey-deep) !important;
+}
+
+.folder-count-badge,
+.button-primary,
+.list-header-title,
+#subjectHeading {
+  font-weight: 500 !important;
+}
+
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--warm-border-strong) transparent;
 }
 
 /* ---------- Folder pane ---------- */
+/* One layer of spacing: rows are full-width bands with their own padding, no inset
+   "card" margin. Indent only where there is real nesting, and keep it small. */
 
 #folderTree {
-  --listbox-border-radius: 4px;
-}
-
-/* Subfolders: TB indents ~20px per level */
-#folderTree li ul {
-  padding-inline-start: 10px !important;
+  --listbox-border-radius: 0px;
 }
 
 #folderTree li > .container {
-  padding-inline: 4px !important;
+  margin-inline: 0 !important;
+  padding-inline: 8px !important;
+}
+
+/* Top level of each mode, and an account's own folders: flush left */
+#folderTree > li > ul,
+#folderTree li[data-server-type] > ul {
+  padding-inline-start: 0 !important;
+}
+
+/* Real subfolders: 8px per level */
+#folderTree li:not([data-server-type]) > ul {
+  padding-inline-start: 8px !important;
+}
+
+/* No empty arrow slot on rows that can't expand, in the flat modes */
+#folderTree li:is([data-mode="favorite"], [data-mode="unread"], [data-mode="recent"])
+  li:not(.children) > .container > .twisty {
+  display: none !important;
+}
+
+/* Account rows read as quiet section labels, not as folders */
+#folderTree li[data-server-type] > .container {
+  min-block-size: 26px;
+}
+
+#folderTree li[data-server-type] > .container > :is(.icon, .folder-count-badge) {
+  display: none !important;
+}
+
+#folderTree li[data-server-type] > .container > .name {
+  font-size: 0.8em !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: var(--warm-text-muted) !important;
 }
 
 /* ---------- Message list ---------- */
@@ -215,23 +275,27 @@ tooltip {
   background-color: color-mix(in srgb, var(--tag-color, transparent) 12%, var(--warm-canvas)) !important;
 }
 
-/* One weight everywhere, so rows never jiggle when read. Unread = darker ink. */
-.card-layout :is(.sender, .subject, .date) {
-  font-weight: 400 !important;
-}
-
+/* Unread = darker ink, never bolder, so rows don't jiggle when read. */
 .card-layout[data-properties~="unread"] .sender { color: var(--warm-text-primary) !important; }
 .card-layout[data-properties~="unread"] .subject { color: var(--warm-text-secondary) !important; }
 .card-layout:not([data-properties~="unread"]) .sender { color: var(--warm-text-secondary) !important; }
 .card-layout:not([data-properties~="unread"]) .subject,
 .card-layout .date { color: var(--warm-text-muted) !important; }
 
-/* Selection text. The id outranks the read/unread rules above. */
+/* Selection. Background and text both key off Thunderbird's own focus test on the list
+   body, so they can never disagree (a mismatch gave cream text on tan). Focused: ink with
+   cream text, including under the pointer (TB would flip a hovered selection to tan).
+   Unfocused: deep parchment with dark text. The id outranks the read/unread rules. */
 #threadTree .card-layout.selected :is(.sender, .subject, .date) {
   color: var(--warm-text-primary) !important;
 }
 
-#threadTree:focus-within .card-layout.selected :is(.sender, .subject, .date, .tree-button-flag, .tree-button-more) {
+#threadTree [is="tree-view-table-body"]:is(:focus, :focus-within) .card-layout.selected {
+  --tree-card-background: var(--warm-ink) !important;
+}
+
+#threadTree [is="tree-view-table-body"]:is(:focus, :focus-within) .card-layout.selected
+  :is(.sender, .subject, .date, .thread-replies, .tree-button-flag, .tree-button-more, .twisty-icon, .replies-icon) {
   color: var(--warm-on-ink) !important;
   fill: var(--warm-on-ink) !important;
 }
@@ -243,7 +307,6 @@ tooltip {
 /* ---------- Reading pane header ---------- */
 
 #subjectHeading {
-  font-weight: 600 !important;
   color: var(--warm-text-strong) !important;
 }
 

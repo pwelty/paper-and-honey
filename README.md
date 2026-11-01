@@ -11,6 +11,7 @@ reward to open.
 - **Reading is the point.** Message bodies in a real reading serif (Charter), generous leading.
 - **Calm list.** Flat, two-line message list. Unread is darker ink, never bolder, so rows don't
   jiggle as mail gets read.
+- **No bold.** It mushes small type. Emphasis is colour; the heaviest weight is medium.
 - **Tags as colour.** Tagged messages get a coloured edge and a soft tint.
 - **Personality allowed.** Rounded UI font, odd touches welcome.
 
@@ -40,6 +41,10 @@ Set once in Thunderbird (they're preferences, not CSS):
   fixed by Thunderbird's JS, so CSS can't do this.
 - Tag colours: warm palette, set in Settings → Tags. The CSS reads each tag's colour, so custom
   tags just work.
+- Density: Compact (View → Density).
+- Folder pane: Favorites mode, not compact (compact appends " - Account" to every name), with
+  the daily folders starred. The account row is styled as a section label.
+- Start page off (`mailnews.start_page.enabled = false`).
 
 ## Install
 
