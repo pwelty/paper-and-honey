@@ -9,10 +9,16 @@ and most themes only recolour the toolbar. Paper & Honey themes the whole window
 
 ## Install
 
-1. Download both `.xpi` files from the [latest release](https://github.com/pwelty/paper-and-honey/releases/latest):
-   - **Paper & Honey** — the theme
-   - **Paper & Honey Reading** — typography for message bodies and the compose window
+1. Download both files from the [latest release](https://github.com/pwelty/paper-and-honey/releases/latest):
+   - **Paper & Honey**, the theme: window, folders, message list, header, icons, light and dark.
+   - **Paper & Honey Reading**, recommended: the inside of each message, set like a page.
 2. In Thunderbird: **Add-ons and Themes → ⚙ → Install Add-on From File…** and pick each file.
+
+**Why Reading is separate.** A theme can't reach the inside of a message, so that part has to be
+an extension, and Thunderbird will ask you to let it "read and modify" messages as they're
+displayed and composed. That's the only way to add CSS there. Reading is two CSS files: no
+scripts, no network access, nothing collected and nothing added to mail you send. Without it the
+window is Paper & Honey but the mail itself is Thunderbird's white page and sans-serif type.
 
 Requires Thunderbird 151 or later. Thunderbird doesn't require add-on signing, so the files install
 as-is, unless your profile has been locked down to require signed add-ons. Updates arrive
@@ -31,6 +37,8 @@ The theme looks its best with a few built-in Thunderbird settings:
   labels hidden, large subject. The theme turns the subject into a serif headline.
 - **Favorites above All Folders**: folder pane ⋯ → Folder Modes. Star the folders you use daily;
   under All Folders, the collapsed account row works as a "see all" toggle.
+- **Theme only, no Reading?** Settings → Fonts & Colors gets you part of the way: serif default
+  font set to Charter, and "Display plain text messages in a fixed-width font" turned off.
 - **Warm tag colours**: Settings → Tags. The theme tints each tagged message with that tag's
   colour, so any colours work; warm ones suit the palette.
 
@@ -98,7 +106,7 @@ The theme looks its best with a few built-in Thunderbird settings:
   dots and list views, use the plain outline weight, because duotone turned into a grey smudge
   at 16px.
 
-### Reading (the companion add-on)
+### Reading (recommended companion add-on)
 
 - Plain-text mail is set in Charter at 15px with 1.65 line spacing, on the same paper (or
   espresso) as the window.
