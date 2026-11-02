@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Package both add-ons as .xpi files in dist/ (zip of each folder, manifest at the root).
-# --atn: builds for addons.thunderbird.net in dist/atn/, without update_url (ATN delivers
+# --atn: builds for addons.thunderbird.net in dist/atn/ as *-atn.xpi, without update_url (ATN delivers
 # its own updates and rejects add-ons that declare one).
 set -euo pipefail
 cd "$(dirname "$0")/.."
@@ -9,7 +9,7 @@ outdir=dist; [[ -n "$atn" ]] && outdir=dist/atn
 mkdir -p "$outdir"
 for a in theme reading; do
   v=$(python3 -c "import json;print(json.load(open('$a/manifest.json'))['version'])")
-  out="$outdir/paper-and-honey-$a-$v.xpi"
+  out="$outdir/paper-and-honey-$a-$v${atn:+-atn}.xpi"
   rm -f "$out"
   (cd "$a" && python3 -m zipfile -c "../$out" $(ls))
   if [[ -n "$atn" ]]; then python3 - "$out" <<'PY'
