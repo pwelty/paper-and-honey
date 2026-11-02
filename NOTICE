@@ -11,4 +11,8 @@ If you share or adapt this work, give credit like this:
 Exception: the icons embedded in theme/theme.css (the --ph-* masks) are Phosphor
 Icons, (c) 2023 Phosphor Icons, under the MIT License; see theme/LICENSE-phosphor.txt.
 
+Exception: the Charter fonts in reading/fonts/ are (c) Copyright 1989-1992, Bitstream Inc.,
+redistributed under Bitstream's licence; see reading/LICENSE-charter.txt. BITSTREAM CHARTER
+is a registered trademark of Bitstream Inc.
+
 The full license text is in LICENSE.

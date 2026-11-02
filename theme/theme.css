@@ -52,7 +52,7 @@
   --warm-hover:        var(--warm-muted);
 
   /* Type */
-  --warm-font-ui: 'SF Pro Rounded', 'Avenir Next', -apple-system, system-ui, sans-serif;
+  --warm-font-ui: -apple-system, system-ui, sans-serif;
 
   /* BEGIN GENERATED ICONS (tools/icons.py) */
   /* Phosphor Icons 2.1.1 (c) 2023 Phosphor Icons, MIT License: see LICENSE-phosphor.txt

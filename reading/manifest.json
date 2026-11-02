@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Paper & Honey Reading",
   "description": "Reading typography for message bodies and a matching compose editor, to go with the Paper & Honey theme.",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "author": "Paul Welty",
   "homepage_url": "https://paulwelty.com/apps/paper-and-honey/",
   "browser_specific_settings": {
@@ -32,6 +32,16 @@
     {
       "css": [
         "compose.css"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "fonts/*.woff2"
+      ],
+      "matches": [
+        "<all_urls>"
       ]
     }
   ]

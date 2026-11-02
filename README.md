@@ -16,15 +16,18 @@ and most themes only recolour the toolbar. Paper & Honey themes the whole window
 
 **Why Reading is separate.** A theme can't reach the inside of a message, so that part has to be
 an extension, and Thunderbird will ask you to let it "read and modify" messages as they're
-displayed and composed. That's the only way to add CSS there. Reading is two CSS files: no
-scripts, no network access, nothing collected and nothing added to mail you send. Without it the
-window is Paper & Honey but the mail itself is Thunderbird's white page and sans-serif type.
+displayed and composed. That's the only way to add CSS there. Reading is two CSS files and the
+Charter font: no scripts, no network access, nothing collected and nothing added to mail you
+send. Without it the window is Paper & Honey but the mail itself is Thunderbird's white page and
+sans-serif type.
 
 Requires Thunderbird 151 or later. Thunderbird doesn't require add-on signing, so the files install
 as-is, unless your profile has been locked down to require signed add-ons. Updates arrive
 automatically.
 
-The type assumes macOS fonts (SF Pro Rounded, Charter); elsewhere it falls back gracefully.
+Reading carries its own Charter, so mail looks the same on every system. The window uses your
+system's interface font, and the subject headline uses Charter where it's installed (every Mac)
+and Georgia or another serif elsewhere.
 
 ## Recommended settings
 
@@ -59,7 +62,7 @@ The theme looks its best with a few built-in Thunderbird settings:
   throughout. The theme follows the system setting and switches without a restart.
 - Toolbars, tabs, the spaces bar, panels and popups all share the palette. Nothing is left in
   stock grey or blue.
-- The interface type is SF Pro Rounded, falling back to Avenir Next and then the system font.
+- The interface type is your system's own font: SF Pro on a Mac, Segoe UI on Windows.
 
 ### Folder pane
 
@@ -108,7 +111,7 @@ The theme looks its best with a few built-in Thunderbird settings:
 
 ### Reading (recommended companion add-on)
 
-- Plain-text mail is set in Charter at 15px with 1.65 line spacing, on the same paper (or
+- Plain-text mail is set in Charter, bundled in the add-on, at 15px with 1.65 line spacing, on the same paper (or
   espresso) as the window.
 - HTML mail gets those defaults only where the sender left them unset. Designed newsletters
   render exactly as sent.
@@ -158,7 +161,11 @@ Two standard add-ons, no legacy `userChrome.css`:
 - `reading/` — **Paper & Honey Reading**, an extension. `reading.css` is injected into displayed
   messages (`message_display_scripts`) and `compose.css` into the compose editor
   (`compose_scripts`, page colour and default ink only; display-only, never sent). Themes can't
-  reach message content, hence a separate add-on.
+  reach message content, hence a separate add-on. Charter ships in `reading/fonts/`, listed as
+  `web_accessible_resources` so message pages may load it.
+
+Fonts can only be bundled in Reading. Thunderbird's own windows have a `default-src chrome:`
+content security policy, so a font in the theme, embedded or not, is refused.
 
 Icons are Phosphor duotone, applied as CSS masks over Thunderbird's own icon colours and
 generated into `theme.css` by `tools/icons.py`. (Theme stylesheets resolve relative URLs against
@@ -178,7 +185,10 @@ both ship inside both add-ons). Share and adapt it freely; credit is the conditi
 
 - Icons: [Phosphor Icons](https://phosphoricons.com) 2.1.1, © 2023 Phosphor Icons, MIT License.
   The full notice ships inside the theme as `theme/LICENSE-phosphor.txt`.
-- Fonts are referenced, not bundled: Charter, Iowan Old Style and SF Pro Rounded come with macOS.
+- Charter: © 1989–1992 Bitstream Inc., redistributed under Bitstream's permissive licence
+  (WOFF2 files from [Practical Typography](https://practicaltypography.com/charter.html)). The
+  notice ships inside Reading as `reading/LICENSE-charter.txt`. BITSTREAM CHARTER is a
+  registered trademark of Bitstream Inc.
 
 ## Maintainer notes
 
