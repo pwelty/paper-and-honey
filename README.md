@@ -43,15 +43,101 @@ The theme looks its best with a few built-in Thunderbird settings:
 - Menu labels keep Thunderbird's title case; the theme re-cases only the labels on screen all
   the time.
 
-## Design
+## Features
 
-- **Warm paper.** Cream canvas, brown ink, honey accent; espresso in dark mode.
-- **Reading is the point.** Plain-text mail in Charter with generous leading. HTML newsletters
-  keep their own design.
-- **Calm list.** Unread is darker ink, never bolder, so rows don't jiggle as mail gets read.
-- **No bold.** It mushes small type. Emphasis is colour; the heaviest weight is medium.
-- **One layer of spacing.** Full-width rows, small indents, no padding stacked on padding.
-- **Sentence case** where the theme can reach it.
+### The whole window
+
+- Cream paper and brown ink in light mode, espresso and cream in dark. Honey is the accent
+  throughout. The theme follows the system setting and switches without a restart.
+- Toolbars, tabs, the spaces bar, panels and popups all share the palette. Nothing is left in
+  stock grey or blue.
+- The interface type is SF Pro Rounded, falling back to Avenir Next and then the system font.
+
+### Folder pane
+
+- Folder icons are coloured by role: inbox honey, sent green, archive blue, drafts plum,
+  outbox teal, junk red, trash and templates muted, ordinary folders tan.
+- Unread counts are soft honey badges with dark text, readable in both modes.
+- Folders with unread mail are shown in honey ink, not bold.
+- Rows run full width. Each nesting level indents 8px, with a 12px twisty.
+- Mode headers (Favorites, All Folders) and account names are styled as quiet labels.
+- Inside Favorites the account row is hidden, so the list is just your folders. Under All
+  Folders, the collapsed account row works as a "see all" toggle.
+- The selected folder is a deep parchment fill. Its badge stays readable on it.
+- Folder suffixes, such as the address Thunderbird appends to duplicate names, stay visible.
+
+### Message list
+
+- Two-line cards (once that setting is on) with no frame inside a frame: each card is one
+  surface with one layer of padding.
+- Unread is darker ink, never bolder. Read mail steps back to secondary ink. Rows keep the same
+  width and height as mail gets read.
+- The read/unread dot is honey with a deeper honey outline, instead of Thunderbird's green.
+- Tagged messages get a 4px edge in the tag's colour and a light tint of it across the card,
+  deeper on hover. This uses Thunderbird's own tag colours, so changing a tag's colour in
+  Settings changes the list.
+- Selection is solid ink with cream text while the list has focus, and deep parchment with dark
+  text when it doesn't. Hover never changes a selected row's colours. Buttons on a selected row
+  (thread twisty, star, menu) get a cream wash instead of a tan one.
+- The star is an outline at rest and filled honey when flagged.
+- Replied and forwarded marks are muted. Thread children aren't indented.
+- The message count reads in lowercase, for example "7,292 messages".
+
+### Message header
+
+- With Thunderbird's compact header settings (see Recommended settings), the header becomes a two-column grid.
+  The subject comes first, set as a Charter headline at 19px in regular weight, with its tags
+  beside it.
+
+### Icons
+
+- Phosphor icons replace Thunderbird's in the folder pane, spaces bar, toolbars, message header
+  and message list.
+- Most use the duotone weight: an outline with a soft fill, coloured by Thunderbird's own icon
+  colours (and by folder role in the folder pane). Small or dense icons, such as plus, the menu
+  dots and list views, use the plain outline weight, because duotone turned into a grey smudge
+  at 16px.
+
+### Reading (the companion add-on)
+
+- Plain-text mail is set in Charter at 15px with 1.65 line spacing, on the same paper (or
+  espresso) as the window.
+- HTML mail gets those defaults only where the sender left them unset. Designed newsletters
+  render exactly as sent.
+- Quoted replies and signatures are set in a quieter ink.
+- The compose window matches the theme's page colour, ink and link colour. This only changes
+  what you see while writing; nothing is added to the mail you send.
+
+### Labels
+
+- Sentence case on the labels that are always on screen: "New message", "Quick filter",
+  "Reply all", "Today pane".
+
+## Design approach
+
+- **A small reward to open.** Warmth and character, not sterile minimalism. Paper, ink and honey
+  instead of white, grey and blue.
+- **Reading is the point.** Mail is mostly text, so the text is set like a page of a book. HTML
+  newsletters keep the design their senders gave them.
+- **No bold.** Bold mushes small type together. Emphasis comes from colour and ink depth, and
+  the heaviest weight anywhere is medium (500). It also stops rows changing width as mail is
+  read.
+- **Contrast everywhere.** Every state is checked: unread badges, selection with and without
+  focus, hover over a selection, buttons on a selected row, both modes. Honey used as text is
+  the deep shade (about 5:1 on the canvas); text on the selection is about 8:1.
+- **One layer of spacing.** No margin around a card plus padding around the item inside it.
+  Rows run full width and indents stay small, because horizontal space is precious and deep
+  indents make lists harder to scan.
+- **Sentence case.** Title case reads as shouting. The theme re-cases labels where CSS can
+  reach. Menus keep Thunderbird's wording, since changing it would take a language pack.
+- **Colour carries meaning.** Folder role, tag and unread state are each shown by colour, so the
+  layout itself can stay quiet.
+- **Work with Thunderbird, not against it.** The theme sets Thunderbird's own palette and
+  component variables first and uses targeted rules only where no variable reaches. It uses
+  Thunderbird's own settings (density, card view, header layout, tag colours) rather than
+  copying them, so it keeps working as Thunderbird changes.
+- **Modern add-ons only.** No `userChrome.css`, no legacy preferences, nothing to hand-edit in
+  your profile. Install, enable, update like any add-on.
 
 ## How it works
 
