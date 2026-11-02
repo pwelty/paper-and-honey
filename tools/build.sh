@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Package both add-ons as .xpi files in dist/ (zip of each folder, manifest at the root).
 # --atn: builds for addons.thunderbird.net in dist/atn/ as *-atn.xpi, without update_url (ATN delivers
-# its own updates and rejects add-ons that declare one).
+# its own updates and rejects add-ons that declare one), and with strict_max_version on the
+# theme (ATN requires one for theme experiments).
 set -euo pipefail
 cd "$(dirname "$0")/.."
 atn=""; [[ "${1:-}" == "--atn" ]] && atn=1
@@ -19,7 +20,10 @@ with zipfile.ZipFile(src) as zin, zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED
     for item in zin.infolist():
         data = zin.read(item.filename)
         if item.filename == "manifest.json":
-            m = json.loads(data); m["browser_specific_settings"]["gecko"].pop("update_url", None)
+            m = json.loads(data); g = m["browser_specific_settings"]["gecko"]
+            g.pop("update_url", None)
+            # ATN requires a cap for theme experiments; self-hosted builds stay uncapped
+            if "theme_experiment" in m: g["strict_max_version"] = "160.*"
             data = (json.dumps(m, indent=2) + "\n").encode()
         zout.writestr(item, data)
 open(src, "wb").write(buf.getvalue())

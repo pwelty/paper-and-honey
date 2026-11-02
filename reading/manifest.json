@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Paper & Honey Reading",
-  "description": "Reading typography for message bodies and a matching compose editor, to go with the Paper & Honey theme.",
+  "description": "The recommended companion to the Paper & Honey theme: plain-text mail in Charter with room to breathe, and a compose window that matches.",
   "version": "0.5.0",
   "author": "Paul Welty",
   "homepage_url": "https://paulwelty.com/apps/paper-and-honey/",
